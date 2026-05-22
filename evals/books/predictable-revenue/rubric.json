@@ -1,0 +1,165 @@
+{
+  "rubric_id": "predictable-revenue-v1",
+  "framework_source": "framework.md",
+  "scoring_model": "binary_with_partial",
+  "scoring_doc": "Each item scored 0 / 0.5 / 1. Item score multiplied by item weight. Final score = sum(item_score * weight) / sum(weight). Pass threshold = 0.75. Items must be observable from the model's output text alone. v1 adds 3 strict-mode items (trigger-event-named, economics-math, counter-prescription) that target operational rigor beyond v0's specificity floor. Total weight grows from 7.5 to 10.5; pass threshold stays at 0.75 of total.",
+  "supersedes": "predictable-revenue-v0 (preserved at rubric-v0.json)",
+  "judge_instructions": "You are a strict but fair judge applying this rubric to a model's sales-machine diagnostic. For each item: read the test, inspect the named output section, score 1.0 if all conditions met, 0.5 if partially met, 0 if not met. The 'critical_application' mode means: a model that critically engages with Ross's framework — including declining the outbound prescription with rigorous rationale when conditions warrant — should NOT be penalized. Score the rigor of framework application, not whether the model prescribed outbound. Both prescribing and declining are valid paths to credit.",
+  "mode": "critical_application",
+
+  "items": [
+    {
+      "id": "icp-defined-tightly",
+      "weight": 1.0,
+      "section": "ICP Diagnosis",
+      "test": "Output specifies the ICP at three levels: (1) firmographic (industry + size band), (2) behavioral or technographic (tech stack, hiring posture, recent funding, observable buying-readiness signal), (3) named buyer role within the target organization. OR — explicitly states the ICP is not yet definable from inputs and names what would need to be observed to define it.",
+      "fail_modes": [
+        "Category-level ICP ('SaaS companies', 'B2B SMBs')",
+        "Firmographic-only ICP without behavioral or trigger signal",
+        "Vague buyer role ('decision-maker') instead of named title",
+        "Pretends to specify ICP when the inputs genuinely don't support it (invents firmographics)"
+      ],
+      "partial_credit": "Score 0.5 if ICP names buyer role + industry but lacks size band or behavioral/trigger signal; or if the analyst correctly notes the ICP is not tight but does not name what would resolve it."
+    },
+    {
+      "id": "role-structure-diagnosed",
+      "weight": 1.0,
+      "section": "Role Structure",
+      "test": "Output diagnoses the current sales role structure: who prospects, who closes, who farms. Identifies whether SDR / AE / AM (or equivalent role distinction) is in place, mixed, or absent. If founder is still doing sales, that is named explicitly.",
+      "fail_modes": [
+        "No engagement with role structure at all",
+        "Vague description ('the team handles sales') without identifying which roles exist",
+        "Missing the founder-doing-sales failure mode when the inputs make it clear"
+      ],
+      "partial_credit": "Score 0.5 if role structure is described but the SDR / AE / AM (or equivalent functional split) distinction is implied rather than named."
+    },
+    {
+      "id": "lead-source-mix-named",
+      "weight": 1.0,
+      "section": "Lead Source Mix",
+      "test": "Output names the current lead source mix using Ross's Seeds / Nets / Spears taxonomy OR equivalent paraphrase (referrals/word-of-mouth / inbound marketing / outbound prospecting). Identifies which source dominates pipeline today and which is neglected or missing.",
+      "fail_modes": [
+        "Names 'leads' generically without distinguishing source categories",
+        "Names only one or two sources when inputs show multiple",
+        "Gets the dominant source wrong relative to clear input signals"
+      ],
+      "partial_credit": "Score 0.5 if 2 of 3 source categories are named correctly with stage-relative diagnosis, but the third is missing or mislabeled."
+    },
+    {
+      "id": "outbound-recommendation-icp-fit-or-rigorous-decline",
+      "weight": 1.5,
+      "section": "Outbound Recommendation",
+      "test": "Either (a) prescribes Cold Calling 2.0 outbound with FOUR specifics: named buyer role to target, channel (email / call / LinkedIn / multi), trigger event that qualifies the prospect now, AND message shape (subject line form, body length, or CTA pattern). Expected response rate is a fifth named element that strengthens the recommendation. OR (b) declines outbound with rigorous rationale tied to the book's named conditions for NOT applying Spears: pre-PMF, ICP not tight enough, Seeds/Nets still scaling, PLG producing buyers cheaply, ACV too low. The decline must name the specific conditions that must be true before outbound becomes appropriate.",
+      "fail_modes": [
+        "Generic 'do outbound to your target market' without buyer role / channel / trigger / message shape",
+        "Mechanical prescription of outbound for a company whose inputs show clear pre-PMF or PLG signals",
+        "Decline of outbound without naming WHICH of the book's conditions applies",
+        "Declines outbound with vague rationale ('it's too early') instead of tying to a named book-recognized condition"
+      ],
+      "partial_credit": "Score 0.5 if outbound is prescribed with 2-3 of 4 required specifics; or if outbound is declined but only one condition is named when multiple conditions are present in inputs.",
+      "discrimination_note": "This is the 1.5x-weighted item and the most discriminating one. Generic models default to mechanical outbound prescription for any B2B company with revenue. Strong models read the conditions in the inputs and either prescribe with specifics OR decline with rigor. The score gap on this item is the single biggest signal of Predictable Revenue framework application quality."
+    },
+    {
+      "id": "conversion-math-engaged",
+      "weight": 1.0,
+      "section": "Conversion Math",
+      "test": "Output engages with the conversion math: names the ratios that should be tracked (lead-to-opportunity, opportunity-to-close, AE quota math given ACV). Either provides typical-range estimates given the company stage, OR explicitly states the inputs do not support the math AND frames it as the diagnostic infrastructure that needs to be built.",
+      "fail_modes": [
+        "No engagement with conversion math at all",
+        "States generic 'we need better metrics' without naming which metrics",
+        "Provides specific ratios that contradict the company stage (e.g., 30% close rate for a pre-PMF company)"
+      ],
+      "partial_credit": "Score 0.5 if 1-2 ratios are named with appropriate ranges but the third is missing; or if the analyst correctly notes the math infrastructure is missing but does not name which specific ratios should exist."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "weight": 1.0,
+      "section": "Failure Modes Flagged",
+      "test": "For each Ross failure mode whose evidence is clearly present in inputs, flag with cited input evidence. Failure modes to consider: founder doing sales, role confusion (one rep doing two jobs), spray-and-pray outbound, lead-source blindness, no conversion math, premature outbound prescription, Cold Calling 1.0 confusion. False positives (flagging weak-evidence modes) do not penalize. False negatives on clear-evidence modes do.",
+      "fail_modes": [
+        "Misses founder-doing-sales when inputs make it clear (no sales team named, founder named in customer interactions)",
+        "Misses lead-source blindness when inputs show only one source documented",
+        "Flags failure modes with no cited input evidence",
+        "Flags every failure mode regardless of evidence (over-flagging)"
+      ],
+      "partial_credit": "Score 0.5 if at least one major failure mode (the one with strongest input evidence) is flagged with cited evidence, but other clearly-evidenced modes are missed."
+    },
+    {
+      "id": "sequencing-in-time",
+      "weight": 0.5,
+      "section": "Sequencing",
+      "test": "Output sequences the recommended changes in time, with at least 2 sequenced steps. Each step is named with quarter-level granularity (or 'first / next / after that') AND the dependency between steps is explicit (e.g., 'define ICP before hiring first SDR because the SDR needs a tight target list to write specific subject lines').",
+      "fail_modes": [
+        "Lists recommendations without temporal order",
+        "Sequences without naming the dependency between steps",
+        "Sequences but the order contradicts framework logic (e.g., hire SDRs before defining ICP)"
+      ],
+      "partial_credit": "Score 0.5 if 2+ steps are sequenced but only one dependency is named explicitly."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "weight": 0.5,
+      "section": "Confidence and Open Questions",
+      "test": "Output states integer confidence (1-10) for BOTH the ICP diagnosis AND the outbound recommendation. Lists 2-3 specific open questions, each naming a metric, ratio, customer-quote pattern, or attribute (not generic 'more data needed').",
+      "fail_modes": [
+        "No confidence stated",
+        "Confidence stated for only one of the two calls",
+        "Open questions are generic ('more sales data', 'better understanding of the market')",
+        "Fewer than 2 open questions"
+      ],
+      "partial_credit": "Score 0.5 if confidence stated for both but only 1 specific open question; or confidence stated for one call only with 2+ specific open questions."
+    },
+    {
+      "id": "trigger-event-named",
+      "weight": 1.0,
+      "section": "ICP Diagnosis",
+      "test": "ICP includes a SPECIFIC OBSERVABLE TRIGGER EVENT — a measurable fact about the prospect that converts 'could buy' to 'will respond now.' Examples that pass: 'Bedrock spend crossing $50K/month' (measurable threshold), 'public AI initiative announcement in trade press' (observable event), 'competitor pilot reaching production with public reference customer' (named signal). Examples that fail: 'buying interest,' 'growth signals,' 'product-market fit indicators,' 'AI maturity.'",
+      "fail_modes": [
+        "No trigger event specified — ICP described only by firmographics + behavior",
+        "Trigger is generic ('they're growing,' 'they're funded,' 'they have AI initiatives')",
+        "Trigger named but not observable (no specific signal a sales team could detect)"
+      ],
+      "partial_credit": "Score 0.5 if a category of trigger is named (e.g., 'product launch') but the specific signal isn't (no threshold, no source, no observable form).",
+      "v1_strict_note": "v1 strict-mode item. Strong ICPs name what makes the prospect respond NOW, not just who they are. The discrimination target: weak models name buyer + segment; strong models add the trigger event that activates the buyer."
+    },
+    {
+      "id": "economics-math",
+      "weight": 1.0,
+      "section": "Conversion Math",
+      "test": "Conversion-math instrumentation includes a CAC PAYBACK CALCULATION showing what target value of metric makes the motion profitable. Example pass: 'AE-led motion costs ~$300K/year fully loaded; if average ACV is $50K, need >12 closes/year to be CAC-positive within 6 months — sets minimum quota math.' Example fail: 'we'll measure pipeline ratios.' The math doesn't have to be precise; it has to be present.",
+      "fail_modes": [
+        "Conversion ratios named without economic context",
+        "Costs implied but no actual payback calculation",
+        "Generic 'we need to track CAC' without naming the threshold that defines profitability"
+      ],
+      "partial_credit": "Score 0.5 if economic context is mentioned (cost ranges named, ACV ranges named) but no actual math connects them to a profitability threshold.",
+      "v1_strict_note": "v1 strict-mode item. Strong sales-machine analyses translate ratios into economics. The discrimination target: weak models name ratios; strong models show the math that turns ratios into hire/no-hire decisions."
+    },
+    {
+      "id": "counter-prescription",
+      "weight": 1.0,
+      "section": "Outbound Recommendation",
+      "test": "Output names at least one CIRCUMSTANCE under which the recommended action would be WRONG. Hedges against blind framework application. Example: if recommending outbound, names what observation would force a decline ('if Net Promoter Score drops below 30 in current customer base, fix retention before adding outbound load'). Example: if declining outbound, names what observation would force prescription ('if inbound conversion drops below 15% for 2 consecutive quarters, build outbound regardless of other conditions').",
+      "fail_modes": [
+        "Recommendation defended without naming counter-conditions",
+        "Counter-conditions implied but not specific",
+        "Generic 'the recommendation depends on' without naming what specifically would invert it"
+      ],
+      "partial_credit": "Score 0.5 if counter-conditions are hinted at (e.g., 'this could change') but not tied to a specific observable signal.",
+      "v1_strict_note": "v1 strict-mode item. Strong sales-machine analyses pre-mortem their own prescriptions. The discrimination target: weak models defend recommendations; strong models name what would force them to revise."
+    }
+  ],
+
+  "validation": {
+    "ground_truth_expected_score_min": null,
+    "ground_truth_note": "Cases scored under this rubric do not have ground truth verdicts (predictable-revenue diagnoses depend on conditions that may shift; the rubric scores rigor of framework application, not framework prescription). v1 raises the bar — strong v0 analyses (1.0 on v0) typically score 0.85-0.92 on v1 unless they engage trigger events, payback math, and counter-prescriptions explicitly.",
+    "discrimination_targets": {
+      "strong_analysis": "≥ 0.85 (down from v0's 0.90)",
+      "decent_analysis": "0.65 - 0.80",
+      "mediocre_analysis": "0.30 - 0.55",
+      "weak_analysis": "< 0.30"
+    },
+    "pass_threshold": 0.75,
+    "pass_threshold_rationale": "Pass threshold stays at 0.75 of total weight (now 7.875 absolute on 10.5 total). Compresses strong scores to 0.85-1.00 — the discrimination band v0 lacked."
+  }
+}

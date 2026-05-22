@@ -1,0 +1,39 @@
+{
+  "book": "crossing-the-chasm",
+  "case_id": "cursor-2026",
+  "rubric_id": "crossing-the-chasm-v0",
+  "analysis_model": "claude-haiku (subagent override)",
+  "judge_model": "claude-in-session",
+  "run_mode": "subagent_stress_test",
+  "run_mode_note": "Stress test for rubric upper-end discrimination. Same case (cursor-2026) and same framework as the Sonnet/Opus baseline run, but the analyst subagent was forced to Haiku via the Agent tool's model parameter. The hypothesis: if Haiku scores meaningfully below Sonnet's 1.0, the rubric discriminates at the upper end. If Haiku also scores 1.0, the rubric ceiling is too low.",
+  "timestamp_iso": "2026-04-30T18:45:00Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.0,
+  "final_score": 0.933,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "stress_test_outcome": "PARTIAL_DISCRIMINATION",
+  "stress_test_summary": "Haiku scored 0.933 (93.3%) versus Sonnet's 1.000 (100%) on the same Cursor 2026 case — a real 6.7-percentage-point gap that the rubric DID surface. The gap was smaller than the earlier mediocre-output discrimination test (which scored 6.7%), suggesting the rubric does discriminate at the upper end but more compression than expected. Haiku's analysis was substantively rigorous; the gap came from a single rubric item (failure-modes-flagged-with-evidence): Haiku missed the central 'four adjacent surfaces' citation for parallel pursuit and did not separately flag confused TALC stage, instead conflating it with parallel pursuit.",
+  "qualitative_observations_haiku_vs_sonnet": [
+    "Haiku and Sonnet DISAGREED on the chasm position call: Haiku said 'approaching the chasm' (Cursor still on the visionary side), Sonnet said 'across the chasm' (Cursor in early majority within current beachhead). Both calls are defensible from the inputs; the rubric correctly scored both as 1.0 on chasm-position-on-buying-motivation because both used buying-motivation reasoning, not growth-justification.",
+    "Haiku's parallel-pursuit citation was off-target: it cited 'messaging mismatch and free tier vs. inside sales' (which is closer to confused TALC stage evidence) rather than the four-adjacent-surfaces expansion thesis (which is the central parallel-pursuit signal in the inputs). This is a Moore-framework-labeling error.",
+    "Haiku introduced two minor technical quality issues: 'SCRIM' (typo of SCIM) and 'SAS 70' (deprecated since 2011, replaced by SOC reports). The rubric does not penalize technical anachronisms but they're worth noting as quality signals.",
+    "Haiku's bowling pin sequence was actually quite strong — three pins with explicit reference-value chaining, including the fintech-to-healthcare adjacency that Sonnet did not include.",
+    "Haiku's confidence calibration matched Sonnet's discipline: TALC 9/10, Chasm 7/10 (Sonnet had 8/10 and 6/10). Both appropriately lower confidence on the contested chasm call."
+  ],
+  "rubric_implications": [
+    "The rubric DOES discriminate at the upper end (6.7-point gap is real signal).",
+    "But discrimination is compressed: a strong-but-imperfect analysis still scores in the 90s. To produce broader score gaps at the upper end, future rubric versions could add stricter requirements: (a) require failure-mode citations to match the canonical input evidence (not adjacent evidence), (b) require failure-mode labels to be distinct (not collapsed), (c) penalize technical anachronisms or factual errors in named items.",
+    "The current rubric is appropriate for v0 — it correctly identifies strong analyses as strong and weak analyses as weak (per the earlier discrimination test). Tightening should be motivated by real disagreement on calls, not by a desire to spread scores."
+  ],
+  "item_scores": [
+    { "id": "talc-stage-decisive", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Early Adopters' decisively. Cites visionary customer profile, engineering manager buyer pattern, free-tier signups with low conversion, NDR-as-intra-account-deepening (not breadth), geography concentration, no pragmatist buying signals. Multi-evidence." },
+    { "id": "chasm-position-on-buying-motivation", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Approaching the chasm' picked decisively. Reasoning: 'metrics reflect deepening penetration of existing visionary segments, not crossing into early majority. Pragmatist segments are knocking at the door without yet adopting at scale.' Buying-motivation framing. Note: disagrees with Sonnet's 'across' call but both are rubric-defensible." },
+    { "id": "beachhead-role-level-specificity", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Engineering Manager, Venture-Backed Software Company, 50-300 engineers, USA + UK.' Role + industry + size + geography. Distinguishes historical beachhead (winning) from next beachhead (mid-market pragmatist) — both at role level. Single beachhead." },
+    { "id": "whole-product-gap-concrete-named-items", "raw_score": 1.0, "weight": 1.5, "weighted_score": 1.5, "reasoning": "7 items, mostly concrete: on-prem/VPC inference, FedRAMP, HIPAA + BAA, BYOM at scale, SCIM at Business tier (typo: 'SCRIM'), audit/pen-test programs (anachronism: 'SAS 70'), pragmatist-segment reference case studies. Quality issues (typo + anachronism) noted but rubric does not penalize for technical accuracy. ≥3 concrete named items requirement met." },
+    { "id": "bowling-pin-falling-rationale", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "3 pins with explicit reference-value chaining: mid-market software (engineering culture + Stripe/Shopify references), fintech mid-market (industry adjacency + shared compliance posture), healthcare (regulatory adjacency to fintech, both data-isolation-focused). Strong sequencing." },
+    { "id": "failure-modes-flagged-with-evidence", "raw_score": 0.5, "weight": 1.0, "weighted_score": 0.5, "reasoning": "Partial credit. Whole product blindness flagged correctly with strong citation. Parallel pursuit flagged but evidence cited (messaging mismatch + free-tier-to-inside-sales) is more naturally confused TALC stage evidence — Haiku missed the central parallel-pursuit signal (four-adjacent-surfaces expansion thesis) and did not separately flag confused TALC stage. Wrong beachhead flagged speculatively as future risk. Net: 2 of 3 strong-evidence modes correctly cited; one mode (parallel pursuit) flagged with wrong-evidence citation; confused TALC stage missing as a distinct flag." },
+    { "id": "visionary-growth-vs-crossing-distinction", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Dedicated section. Explicit framing: 'sustained visionary deepening, not early-majority crossing.' Lists 5 distinguishing indicators. Names what actual crossing would look like in observable terms (FedRAMP/HIPAA/BYOM shipped + reference-backed, procurement-driven sales >50% of new ACV, procurement cycle elongation without deal collapse)." },
+    { "id": "confidence-and-open-questions-calibrated", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "TALC 9/10, Chasm 7/10 — integers, appropriately differentiated. 3 open questions, all with named metrics and quantitative trigger thresholds: geographic revenue mix (40%+ threshold), Business tier CAC vs Pro CAC (4x payback threshold), on-prem/FedRAMP/BYOM deployment by Q3 2026 (>20% new enterprise ACV threshold). Each threshold predicts how confidence shifts with the answer." }
+  ]
+}

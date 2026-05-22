@@ -1,0 +1,96 @@
+{
+  "book": "play-bigger",
+  "case_id": "gtmstack-2026",
+  "case_type": "self_diagnostic",
+  "rubric_id": "play-bigger-v1",
+  "analysis_model": "claude-subagent",
+  "judge_model": "claude-subagent",
+  "run_mode": "self_diagnostic",
+  "run_mode_note": "gtmstack running on itself. Author authored everything. Self-grading bias acknowledged. The case is the most adversarial-to-inputs case in the repo: founder authored the books, rubrics, case, and now the analysis being judged. The 1.000 score should be read with that bias in mind — the author both wrote the rubric items and the analysis being graded against them. Discount accordingly.",
+  "timestamp_iso": "2026-05-03T15:00:00Z",
+  "total_weight": 10.5,
+  "weighted_sum": 10.5,
+  "final_score": 1.000,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    {
+      "id": "mission-critical-problem-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Mission-Critical Problem section names WHO (Series B/C founder-CEOs and GTM leads at AI dev tools / SaaS who are stuck in beachhead choice AND already use Claude Code), what they currently call it ('GTM advice', 'fractional CMO', 'engage a strategy firm'), and why the framing is incomplete (advisor-shaped one-shot artifact vs the runnable-eval reframe). Distinguishable from generic 'GTM is hard'."
+    },
+    {
+      "id": "pov-three-parts",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "All three parts present and non-generic: (1) problem named as 'slow, expensive, opinion-shaped, single-advisor-framework-preference'; (2) structural failures specified for three named competitor classes (consulting cannot productize without cannibalizing partner-hours; chat AI is structurally hostile to eval-divergence UX; execution-tool data model is event-shaped not situation-shaped); (3) conceptual shift named ('strategy can be evaluated like code, equivalent to tests-as-spec in early TDD era'). Each part is specific. Self-grading bias on this 1.5x-weighted item: the analyst voluntarily marks the POV 'vapor-adjacent' until external validation exists, which is honest self-criticism inside the analysis itself."
+    },
+    {
+      "id": "magic-triangle-alignment-diagnosed",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Magic Triangle Alignment section diagnoses all three legs in a table with cited input evidence (Product: 5 books / ~30 cases / 3 syntheses; Company: 10-15 hrs/week part-time, no team, no instrumentation; Category: 'books-as-evals' claim conflicting with README $0-vs-$20K-consulting framing). Names two specific misalignments: Product↔Company (tool-positioning vs side-project) and Company↔Category (category claim requires sustained narrative infrastructure that part-time cannot deliver)."
+    },
+    {
+      "id": "category-strategy-with-rigorous-reasoning",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Picks Path B (niche subcategory: Claude Code skill pack for GTM) explicitly and engages all four framework conditions: team capacity (10-15 hrs/week structurally limits Path A); competitive dynamics (Path C blocked by ChatGPT bundled distribution and consulting industry as $300B incumbent king); product readiness (no external operator validation); funding/patience (not raised, no team). Rejected paths' wrongness named specifically ('vapor-king risk', 'default category trap'). No hedging."
+    },
+    {
+      "id": "lightning-strike-sequencing",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Names 5 specific, testable readiness criteria: (1) 5 external operators with live-problem runs + written debriefs, (2) 3 of 5 confirming convergent-diagnosis prescriptive value, (3) instrumentation existing (install count, active-user count, completion rate), (4) author committing >=30 hrs/week for >=6 months, (5) a second author having contributed a canonical-book encoding. Each is observable, not 'good product' generic."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Failure Modes Flagged section flags six modes with cited input evidence: premature lightning strike (HIGH, central), vapor POV (HIGH), magic triangle misalignment (HIGH), default category trap (MEDIUM, surfaces inconsistent README framing), better-thinking-not-different (MEDIUM, the $0-vs-$20K framing is better-shape), #2-by-default (LOW, named and rejected). Marketing drift correctly marked N/A with reasoning ('there is no marketing surface to drift'). Severity levels assigned, not over-flagged."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Both integer confidences stated (POV sharpness: 6/10, category strategy: 7/10) with reasoning for both. Three specific open questions, each naming a measurable attribute: (1) /gtm-office-hours install count and 30-day completion rate above 40%, (2) count of LinkedIn-engagement replies that converted to live-problem runs with written debriefs, (3) author's written >=30 hrs/week commitment. None are generic 'more market data'."
+    },
+    {
+      "id": "category-king-economics-engaged",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Engages category-king economics specifically per-path: Path A produces vapor-king risk because category-defending requires full-time work (Lochhead's Category Pirates as 3-person full-time comparison); Path B niche-king captures >50% of niche value if buyer-recognized parent category exists (gstack already established it); Path C structural #3 captures <10% of value behind ChatGPT/Bain bundled-distribution moats. Specific incumbents named, not framework restatement."
+    },
+    {
+      "id": "uncomfortable-test-applied",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "POV section's 'Uncomfortable test' subsection names what three specific competitors get STRUCTURALLY wrong: (1) McKinsey/BCG/Bain cannot productize a framework as a runnable rubric without cannibalizing partner-hour revenue — structural pricing-model conflict, not 'we are cheaper'; (2) ChatGPT/Claude.ai chat UX is structurally hostile to eval-mode honest divergence because chat optimizes for one coherent reply, not for surfacing rubric disagreements; (3) Lavender/Outreach data model is event-shaped, situation-shaped strategy diagnostics structurally do not fit. Each names what is wrong, not just what is different."
+    },
+    {
+      "id": "king-vs-niche-justified-with-economics",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "King-vs-niche economics applied case-specifically: Path A blocked by Company-leg constraint (10-15 hrs/week cannot defend a category claim that requires full-time category-marketing infrastructure); Path B defensible because parent category (Claude Code skill packs) is buyer-recognized via gstack and category education is not required; Path C blocked by ChatGPT's bundled distribution moat that 'cannot be matched on 10-15 hrs/week part-time'. The rejected paths' economics are explored, not just the chosen path's. No '76% of value to king' framework restatement; the math is applied to this specific case's incumbents."
+    },
+    {
+      "id": "strike-failure-precondition",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Strike failure precondition section names a specific observable threshold tied to a measurable input signal: 'If by 2026-12-31 fewer than 3 external operators have produced written debriefs confirming convergent-diagnosis value on live problems, do NOT fire the strike.' Includes rationale (3 is the minimum sample to distinguish founder-dogfooding from buyer-validation; vapor POV recovery takes 18-36 months; MIT license enables fast competitor entry). Secondary precondition also specific: 'If install count is non-measurable on strike day, delay.' Both flip 'fire' to 'delay' on observable thresholds."
+    }
+  ],
+  "analysis_summary": "Play Bigger says: do NOT strike. Two of three Magic Triangle legs are misaligned — Product and Category point at a new tool-shaped category, but Company is a 10-15 hrs/week side project that cannot defend any category claim. The recommendation is Path B (niche subcategory: Claude Code skill pack for GTM, inheriting the parent category gstack established) with lightning strike deferred until 5 specific readiness criteria are met, including 5 external-operator live-problem runs with 3 producing prescriptive-value debriefs by 2026-12-31. Path A (design new 'books-as-evals' category and play for king) is operationally impossible at current company capacity and would produce vapor POV — Play Bigger's worst outcome. Path C (compete in existing category) is rejected because no adjacent category is in king-transition where gtmstack could leapfrog. Convergence across the five-book suite would predict the same prescription: validate demand with external operators before anything else, then niche-king the Claude-Code-skill-pack-for-GTM position, defer category-design strike 12-18 months."
+}

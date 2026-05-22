@@ -1,0 +1,168 @@
+{
+  "rubric_id": "play-bigger-v1",
+  "framework_source": "framework.md",
+  "scoring_model": "binary_with_partial",
+  "scoring_doc": "Each item scored 0 / 0.5 / 1. Item score multiplied by item weight. Final score = sum(item_score * weight) / sum(weight). Pass threshold = 0.75. v1 adds 3 strict-mode items (uncomfortable-test-applied, king-vs-niche-justified-with-economics, strike-failure-precondition) that target category-design rigor beyond v0's specificity floor. Total weight grows from 7.5 to 10.5; pass threshold stays at 0.75 of total.",
+  "supersedes": "play-bigger-v0 (preserved at rubric-v0.json)",
+  "judge_instructions": "You are a strict but fair judge applying this rubric to a model's category-design diagnostic. For each item: read the test, inspect the named output section, score 1.0 if all conditions met, 0.5 if partially met, 0 if not met. The 'critical_application' mode means: a model that critically engages with Play Bigger's framework — including recommending compete-in-existing-category over design-new-category when conditions warrant — should NOT be penalized. Score the rigor of framework application. Both designing a new category AND choosing to compete in an existing one are valid paths to credit.",
+  "mode": "critical_application",
+
+  "items": [
+    {
+      "id": "mission-critical-problem-named",
+      "weight": 1.0,
+      "section": "Mission-Critical Problem",
+      "test": "Output names the problem at three levels: (1) WHO has it (specific buyer or segment), (2) what they currently call the problem (if anything), (3) why the existing framing is incomplete or wrong. The problem must be distinguishable from a generic 'X needs to be better' framing.",
+      "fail_modes": [
+        "Generic 'companies need AI' or 'sales is broken' problem framing",
+        "Problem named without identifying who has it",
+        "No engagement with how the problem is framed in existing categories today",
+        "Problem framing is identical to existing category positioning ('better LLM API')"
+      ],
+      "partial_credit": "Score 0.5 if the problem is named with WHO and current-framing but not why-existing-framing-is-wrong, OR named with current-framing-critique but no specific WHO."
+    },
+    {
+      "id": "pov-three-parts",
+      "weight": 1.5,
+      "section": "Point of View (POV)",
+      "test": "Output states a Point of View with all three required parts: (1) the problem named clearly, (2) why existing solutions structurally fail (not 'ours is better' — they were built for a different problem), (3) the new way of thinking the category requires (conceptual shift for the buyer). Each part must be specific and non-interchangeable with a competitor's POV.",
+      "fail_modes": [
+        "POV that could equally describe two named competitors",
+        "Missing one of the three required parts",
+        "'Better than X' framing instead of structural-difference framing",
+        "Vapor POV — claims the product cannot deliver on, or that are too generic to discriminate"
+      ],
+      "partial_credit": "Score 0.5 if 2 of 3 parts are specific but the third is generic, OR if all 3 parts are stated but one is shared with a named competitor.",
+      "discrimination_note": "This is the 1.5x-weighted item. Generic models say 'this is the better X' or invoke vague differentiation. Strong models name the structural reason existing solutions cannot solve the problem. The score gap on this item is the single biggest signal of category-design analysis quality."
+    },
+    {
+      "id": "magic-triangle-alignment-diagnosed",
+      "weight": 1.0,
+      "section": "Magic Triangle Alignment",
+      "test": "Output diagnoses Product / Company / Category internally — naming what's built (Product), how organized and funded (Company), and what category is currently claimed by default or design (Category). Identifies alignment OR specific misalignment with cited evidence (e.g., 'product is built for X, company hired for Y, category claim is Z').",
+      "fail_modes": [
+        "Treats only one of the three (analyzes Product but not Company or Category, or vice versa)",
+        "States 'they're aligned' or 'they're misaligned' without naming the specific evidence in each leg of the triangle",
+        "Misses obvious misalignment when inputs make it clear (e.g., expansion thesis claims one category, hiring posture matches a different category)"
+      ],
+      "partial_credit": "Score 0.5 if 2 of 3 legs are diagnosed with evidence but the third is missing or generic."
+    },
+    {
+      "id": "category-strategy-with-rigorous-reasoning",
+      "weight": 1.0,
+      "section": "Category Strategy",
+      "test": "Output picks ONE of three paths (design new / niche subcategory / compete in existing) AND justifies the choice with reference to: the team's category-education capacity, existing-category competitive dynamics (king already crowned vs. king-in-transition vs. open), product readiness to deliver on the category claim, and funding/patience for category infrastructure. The reasoning must engage with the alternatives — explaining why the rejected paths are wrong here.",
+      "fail_modes": [
+        "Picks a path without engaging with why other paths are wrong",
+        "Defaults to 'design a new category' without testing whether existing-category-king status is more valuable here",
+        "Picks 'compete in existing' without naming WHICH existing category and what category-king dynamics look like",
+        "Hedges across multiple paths"
+      ],
+      "partial_credit": "Score 0.5 if a path is chosen with reasoning but only 1 of 4 framework conditions (team capacity, competitive dynamics, product readiness, funding) is engaged with."
+    },
+    {
+      "id": "lightning-strike-sequencing",
+      "weight": 0.5,
+      "section": "Lightning Strike Sequencing",
+      "test": "If category strategy is A or B (new category or niche), output names 3-5 specific readiness criteria that must exist before lightning strike fires (product proof points, company hires, narrative infrastructure, customer references, partnerships). If category strategy is C (compete in existing), output explicitly states lightning strike is not applicable and frames the alternative (king-transition tactics, segment-narrowing within the category).",
+      "fail_modes": [
+        "Strategy A or B picked but no readiness criteria named",
+        "Generic readiness criteria ('strong launch') without specifics",
+        "Strategy C picked but no alternative tactic named"
+      ],
+      "partial_credit": "Score 0.5 if 2 readiness criteria are named but none are specific enough to test (e.g., 'good product' rather than 'X reference customer in production')."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "weight": 1.0,
+      "section": "Failure Modes Flagged",
+      "test": "For each Play Bigger failure mode whose evidence is clearly present in inputs, flag with cited input evidence: default category trap, better thinking (not different), vapor POV, premature lightning strike, magic triangle misalignment, marketing drift, #2-by-default. False positives don't penalize. False negatives on clear-evidence modes do.",
+      "fail_modes": [
+        "Misses the default category trap when expansion thesis is clearly playing in an existing category",
+        "Misses 'better thinking' when messaging emphasizes 'better' / 'faster' / 'more X' rather than structural difference",
+        "Flags failure modes without cited input evidence",
+        "Over-flags every failure mode regardless of evidence"
+      ],
+      "partial_credit": "Score 0.5 if 1-2 strong-evidence failure modes are flagged with citations but other clearly-evidenced modes are missed."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "weight": 0.5,
+      "section": "Confidence and Open Questions",
+      "test": "Output states integer confidence (1-10) for BOTH the POV sharpness AND the category strategy recommendation. Lists 2-3 specific open questions, each naming a metric, ratio, customer-quote pattern, or attribute (not generic 'more market data').",
+      "fail_modes": [
+        "No confidence stated",
+        "Confidence stated for only one of the two calls",
+        "Open questions are generic",
+        "Fewer than 2 open questions"
+      ],
+      "partial_credit": "Score 0.5 if confidence stated for both but only 1 specific open question; or confidence stated for one call only with 2+ specific open questions."
+    },
+    {
+      "id": "category-king-economics-engaged",
+      "weight": 1.0,
+      "section": "Category Strategy (this item evaluates the same section as the strategy item but tests a different dimension)",
+      "test": "Output explicitly engages with category-king economics: names whether category-king status is achievable for this company in this market, and why or why not. Engages with whether being #2 or #3 in an existing category is structurally worse than being #1 in a new category, given the inputs. The judgment must be specific to this case, not a generic restatement of the framework's headline claim.",
+      "fail_modes": [
+        "Restates the framework's '76% of value goes to category king' claim without applying it to this specific situation",
+        "Recommends a category strategy without addressing whether this company can plausibly become category king",
+        "Treats all three strategy paths as economically equivalent",
+        "Ignores the existing category-king (if any) when recommending compete-in-existing"
+      ],
+      "partial_credit": "Score 0.5 if category-king economics are mentioned but the application to this company's specific situation is generic."
+    },
+    {
+      "id": "uncomfortable-test-applied",
+      "weight": 1.0,
+      "section": "Point of View (POV)",
+      "test": "POV explicitly names what is WRONG with at least one named competitor's worldview. Tests that the POV is exclusionary rather than just self-describing. Example pass: 'Microsoft/OpenAI's Brazilian narrative is reseller-mediated through Azure — the buyer who needs accountability for safety research can't get it from a reseller relationship.' Example fail: POV describes Anthropic's positioning without naming what existing competitors get wrong.",
+      "fail_modes": [
+        "POV describes own positioning without naming any competitor's wrongness",
+        "Names competitors but doesn't articulate what their worldview gets structurally wrong",
+        "Implicit exclusion ('we're different') without specifying the wrongness"
+      ],
+      "partial_credit": "Score 0.5 if competitor exclusion is implied but not explicitly named, OR if one competitor's worldview is challenged but the challenge is generic ('they're capability-first; we're safety-first') rather than structural ('they cannot offer X because Y').",
+      "v1_strict_note": "v1 strict-mode item. Strong POVs are uncomfortable — they exclude. The discrimination target: weak models describe their own positioning; strong models name what competitors get wrong with specificity."
+    },
+    {
+      "id": "king-vs-niche-justified-with-economics",
+      "weight": 1.0,
+      "section": "Category Strategy",
+      "test": "Choice between 'design new', 'claim niche', 'compete in existing' is justified with reference to category-king economics SPECIFIC to this case (not framework restatement). Example pass: 'Compete-in-existing loses because the existing category-king is Microsoft with bundled Azure distribution we cannot match in 18 months — being a structural #3 against bundled distribution is the worst position.' Example fail: 'Category kings get 76% of value, so we should design a new category.'",
+      "fail_modes": [
+        "Generic framework restatement ('category kings get 76% of value') without applying to this specific company",
+        "Strategy chosen without engaging the existing category-king dynamics",
+        "Treats the three paths as economically equivalent without case-specific reasoning",
+        "Cites the economics in the abstract without naming the specific incumbent or specific dynamics that drive the choice"
+      ],
+      "partial_credit": "Score 0.5 if economics are referenced but applied generically, OR if one path's economics are explored but the rejected paths' economics are not.",
+      "v1_strict_note": "v1 strict-mode item. Strong category-design analyses pick a path because of THIS case's specific dynamics. The discrimination target: weak models cite the framework; strong models apply the framework to specifics."
+    },
+    {
+      "id": "strike-failure-precondition",
+      "weight": 1.0,
+      "section": "Lightning Strike Sequencing OR Failure Modes Flagged",
+      "test": "At least one specific input signal is named that would shift the recommendation from 'fire strike' to 'delay strike' (or vice versa). Forces honest pre-mortem thinking. Example pass: 'If LGPD attestation has not been issued by the named auditor 30 days before strike day, delay; firing without published attestation produces vapor POV that takes 6+ months to recover from.' Example fail: 'Make sure infrastructure is ready' (vague).",
+      "fail_modes": [
+        "Strike timing is justified without naming what specific observation would change it",
+        "Generic 'if conditions deteriorate, delay' without naming the conditions",
+        "Names readiness gates but doesn't name the OBSERVABLE THRESHOLD that flips fire/delay"
+      ],
+      "partial_credit": "Score 0.5 if a vague failure condition is named but not tied to a specific input signal or measurable threshold.",
+      "v1_strict_note": "v1 strict-mode item. Strong launch analyses pre-mortem the strike. The discrimination target: weak models recommend 'fire when ready'; strong models name what specifically being-not-ready looks like."
+    }
+  ],
+
+  "validation": {
+    "ground_truth_expected_score_min": null,
+    "ground_truth_note": "Cases scored under this rubric do not have ground truth verdicts. v1 raises the bar — strong v0 analyses (1.0 on v0) typically score 0.85-0.92 on v1 unless they pass the uncomfortable test, justify category strategy with case-specific economics, AND name strike-failure preconditions.",
+    "discrimination_targets": {
+      "strong_analysis": "≥ 0.85 (down from v0's 0.90)",
+      "decent_analysis": "0.65 - 0.80",
+      "mediocre_analysis": "0.30 - 0.55",
+      "weak_analysis": "< 0.30"
+    },
+    "pass_threshold": 0.75,
+    "pass_threshold_rationale": "Pass threshold stays at 0.75 of total weight (now 7.875 absolute on 10.5 total). Compresses strong scores to 0.85-1.00 — the discrimination band v0 lacked."
+  }
+}

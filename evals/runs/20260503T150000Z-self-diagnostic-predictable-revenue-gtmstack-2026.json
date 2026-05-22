@@ -1,0 +1,96 @@
+{
+  "book": "predictable-revenue",
+  "case_id": "gtmstack-2026",
+  "case_type": "self_diagnostic",
+  "rubric_id": "predictable-revenue-v1",
+  "analysis_model": "claude-subagent",
+  "judge_model": "claude-subagent",
+  "run_mode": "self_diagnostic",
+  "run_mode_note": "gtmstack running on itself. Author authored framework, prompt, rubric, case, AND judges output. Self-grading bias acknowledged. Productive-misfit candidate — Predictable Revenue may prescribe NOT to apply outbound yet.",
+  "timestamp_iso": "2026-05-03T15:00:00Z",
+  "total_weight": 10.5,
+  "weighted_sum": 10.5,
+  "final_score": 1.000,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    {
+      "id": "icp-defined-tightly",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "The ICP Diagnosis section opens with 'gtmstack does not yet have an ICP. It has four hypothesized target profiles, none validated.' It then explicitly names what would resolve the ICP ('of the next 10 external operators who run gtmstack on a live GTM problem... what job title do they hold, what company stage are they at, and what triggered their interest'). Hits the alternative path of 'correctly notes ICP is not tight + names what would resolve it' at full credit, not 0.5."
+    },
+    {
+      "id": "role-structure-diagnosed",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Role Structure section maps explicitly to all three Ross roles (SDR=zero, AE=N/A, AM=N/A) and names founder-doing-sales explicitly: 'The author is doing all sales. There is no sales team. There is no SDR. There is no AE. There is no AM.' Goes further to flag the structural constraint (10-15 hrs/week part-time) as upstream of role specialization."
+    },
+    {
+      "id": "lead-source-mix-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Lead Source Mix section names all three Ross categories (Seeds/Nets/Spears) with stage-relative diagnosis: Seeds 'present but inert' (warm mentions stalling at polite interest), Nets 'minimal' (LinkedIn + GitHub at noise volume), Spears 'zero.' Identifies dominant (Nets technically, at noise-level), neglected (instrumentation), and stage mismatch (prescribing Spears would compound the problem)."
+    },
+    {
+      "id": "outbound-recommendation-icp-fit-or-rigorous-decline",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "Outbound Recommendation declines explicitly ('DECLINE outbound. Defer Cold Calling 2.0 indefinitely.') and names four of the book's five canonical 'when NOT to apply Spears' conditions (pre-PMF, ICP-not-tight, Seeds/Nets unexhausted, ACV-too-low) plus author-availability constraint. Lists five specific conditions that must be true before outbound becomes the right move. Full credit for rigorous decline tied to multiple named book conditions."
+    },
+    {
+      "id": "conversion-math-engaged",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Conversion Math section names four specific ratios (impression→install, install→active, active→repeated, active→paid) with target ranges appropriate to stage (e.g., 0.5%-2% install rate, 20-40% activation, 2-5% paid conversion for early dev-tool monetization), explicitly frames missing instrumentation as the 'predictability gap.'"
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Failure Modes Flagged cites four major failure modes with quoted input evidence: founder-doing-sales ('10-15 hrs/week part-time'), lead-source-blindness ('Install count: not measured'), no-conversion-math ('no validated ICP yet'), pre-PMF-outbound-risk (the demand-signal hypothesis quote). Also explicitly NOT-flags four modes where evidence is weak (role confusion, spray-and-pray, Cold Calling 1.0, premature outbound prescription) — exactly the discriminating discipline the rubric rewards."
+    },
+    {
+      "id": "sequencing-in-time",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Sequencing section orders four steps at quarter granularity (Q3 2026 → Q4 2026 → Q1 2027 → Q2 2027) with explicit named dependencies between each ('cannot run before Q3 because the input data doesn't exist'; 'cannot run before paying customers exist'; 'cannot run before ICP is tight enough'). The Ross-aligned punchline ('Q2 2027 is the EARLIEST that Cold Calling 2.0 becomes a question worth answering') ties sequencing to framework logic."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Confidence section gives integer confidence for both calls (ICP: 3/10, Outbound: 9/10) and lists 3 specific open questions, each naming a measurable metric: install/completion rate within 14 days, Mom-Test sequence answer pattern from warm friends, and willingness-to-pay range bucket ($0 / $50-200 seat / $5K-25K engagement). All three are operationalizable, not generic."
+    },
+    {
+      "id": "trigger-event-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "ICP Diagnosis names a specific observable trigger: 'public announcement of a new Head-of-GTM hire at a Series B/C SaaS or AI-tools company within the prior 90 days.' Observable (LinkedIn change-of-job, press release, blog), measurable (90-day window), specific (named role and timeframe). The analyst correctly caveats the trigger as unvalidated hypothesis — which is honest given the inputs — but the trigger itself is specified at the level the v1 strict-mode item requires."
+    },
+    {
+      "id": "economics-math",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Conversion Math section includes explicit CAC payback math: 'A fully-loaded AE costs ~$250K-$300K/year. To be CAC-positive within 6 months, an AE-led motion needs >12 closes/year at $50K ACV, or >30 closes/year at $20K ACV, or >60 closes/year at $10K ACV.' SDR economics computed similarly ($150K/yr needs $300K closed-won, 60 closes at $5K ACV). The killer line — 'at today's ACV of $0, every minute spent on outbound has infinite payback time' — translates the math into a binary hire/no-hire conclusion."
+    },
+    {
+      "id": "counter-prescription",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Outbound Recommendation explicitly names three observable counter-conditions that would invert the decline: (1) 'installs cross ~500 in a 30-day window AND tight firmographic pattern,' (2) 'hosted-version offering ships and 10+ companies pay $10K+/year ACV within 6 months,' (3) '3+ paying customers share the same trigger (e.g., all hired a new VP Marketing in the prior 90 days).' Each is measurable, specific, and tied to a threshold."
+    }
+  ],
+  "analysis_summary": "Aaron Ross says DO NOT run outbound. The decline is unambiguous and rigorously tied to four of the book's five named conditions (pre-PMF, ICP-not-tight, Seeds/Nets unexhausted, ACV-too-low) plus author availability. The diagnosis reframes the question: gtmstack's load-bearing decision is not 'how to build a sales machine' but 'is this a company at all'? Today's right move is converting one warm 'I'd run this' mention into a Mom-Test-disciplined live-problem session, then deciding by Q4 2026 whether to commercialize. Cold Calling 2.0 is the earliest a Q2 2027 question, conditional on three sequential gates being passed first."
+}

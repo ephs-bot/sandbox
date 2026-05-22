@@ -1,0 +1,162 @@
+{
+  "rubric_id": "the-mom-test-v1",
+  "framework_source": "framework.md",
+  "scoring_model": "binary_with_partial",
+  "scoring_doc": "Each item scored 0 / 0.5 / 1. Item score multiplied by item weight. Final score = sum(item_score * weight) / sum(weight). Pass threshold = 0.75. Items must be observable from the model's output text alone (LLM judge applies them). v1 ships from day one with strict-mode items (falsifying-answers-named, structural-skepticism, prior-conversation-flaw) baked into the rubric. Total weight 10.5; pass threshold 0.75 of total = 7.875 absolute. Strong analyses cluster at 0.85-1.00.",
+  "judge_instructions": "You are a strict but fair judge applying this rubric to a model's demand-evidence audit. For each item: (1) read the test, (2) inspect the named output section, (3) score 1.0 if all conditions met, 0.5 if partially met, 0 if not met. The 'critical_application' mode means: a model that critically engages with Fitzpatrick's framework on contested points (e.g., notes that waitlists CAN be useful signal in specific contexts) should NOT be penalized as long as the framework's core mechanics — bad-data flagging, past-behavior probes, falsifying questions — are applied rigorously. Score the application, not the agreement.",
+  "mode": "critical_application",
+
+  "items": [
+    {
+      "id": "hypothesis-audit-named",
+      "weight": 1.0,
+      "section": "Hypothesis Audit",
+      "test": "Output names 3-5 specific load-bearing hypotheses about customer demand the company is operating on. For each: hypothesis is stated clearly, evidence-from-inputs is named, evidence is classified as real (specific past behavior with time/money/risk) or fluff (compliments, hypothetical futures, vanity metrics, ideas-from-prospects).",
+      "fail_modes": [
+        "Generic 'they want our product' hypothesis without naming specifics",
+        "Fewer than 3 hypotheses identified",
+        "No evidence-classification (real vs. fluff) per hypothesis",
+        "Treats inputs as evidence without examining whether they're past-behavior signals"
+      ],
+      "partial_credit": "Score 0.5 if 2-3 hypotheses are named with evidence classification, but a 4th is named without classification."
+    },
+    {
+      "id": "bad-data-flagged-with-citations",
+      "weight": 1.0,
+      "section": "Bad-Data Signals Flagged",
+      "test": "Output flags specific bad-data signals present in the inputs, with input language quoted verbatim and explanation of why it's bad data. At least 2 flagged signals required. Categories to check: compliments, fluff, ideas-from-prospects, hypothetical futures, vanity engagement.",
+      "fail_modes": [
+        "No bad-data signals flagged when inputs contain compliments or fluff",
+        "Bad-data signals flagged without verbatim citations",
+        "Treats compliments and waitlist counts as evidence rather than as bad data"
+      ],
+      "partial_credit": "Score 0.5 if 1 bad-data signal is flagged with citation but other signals visible in inputs are missed."
+    },
+    {
+      "id": "past-behavior-probes-specific",
+      "weight": 1.0,
+      "section": "Past-Behavior Probes",
+      "test": "For each load-bearing hypothesis, output proposes at least one specific past-behavior question. Questions must ask about specific events in the prospect's past, not opinions about the future. 'When was the last time you...' or 'Walk me through what happened when...' patterns pass; 'Would you...' or 'Could you imagine...' patterns fail.",
+      "fail_modes": [
+        "Questions are hypothetical ('would you,' 'could you imagine')",
+        "Questions are generic preferences not anchored to specific past events",
+        "Fewer probes than hypotheses (skipping coverage)"
+      ],
+      "partial_credit": "Score 0.5 if probes are specific past-behavior for some hypotheses but generic for others."
+    },
+    {
+      "id": "big-three-falsifying",
+      "weight": 1.5,
+      "section": "The Big Three",
+      "test": "Output proposes three falsifying questions. Each question targets a specific hypothesis from the Hypothesis Audit, is answerable in yes/no or specific-instance form, and has a falsifying answer named — a specific observable answer that would force the company to revise its approach. Generic 'we'd know more' answers fail.",
+      "fail_modes": [
+        "Questions are validating, not falsifying ('would you buy this' style)",
+        "No falsifying answer named per question — only 'we'd know more'",
+        "Questions don't tie to specific hypotheses",
+        "Questions are hypothetical rather than past-behavior"
+      ],
+      "partial_credit": "Score 0.5 if 2 of 3 questions are falsifying with named answers but the 3rd is validating or vague.",
+      "discrimination_note": "This is the 1.5x-weighted item. Generic models default to 'ask them what they think' questions. Strong models name the specific answer that would prove their thesis WRONG. The score gap on this item is the single biggest signal of Mom Test analysis quality."
+    },
+    {
+      "id": "commitment-ladder-mapped",
+      "weight": 1.0,
+      "section": "Commitment Ladder Position",
+      "test": "Output maps the current state of demand evidence to a specific level on the commitment ladder (Level 0-5 per framework or equivalent paraphrase). Names what level current customers/prospects are at AND what specific next advancement would convert hypothesis into evidence. The advancement ask is concrete (a paid pilot, named introduction, named referral, signed contract).",
+      "fail_modes": [
+        "No level named — vague 'they're interested'",
+        "Next advancement is generic ('keep talking') not specific",
+        "Treats different prospects' commitment levels as uniform when inputs show variance"
+      ],
+      "partial_credit": "Score 0.5 if level is named but next advancement is vague, OR if advancement is specific but level isn't mapped."
+    },
+    {
+      "id": "bad-mouth-test-applied",
+      "weight": 1.0,
+      "section": "Bad-Mouth Test",
+      "test": "Output names 2-3 things in the inputs that look like validation but might be founder-framing-the-data-favorably. Adversarial to the inputs, not to the company. At least one observation must be a structural skepticism — something about the company's own framing of the problem, not just external doubts.",
+      "fail_modes": [
+        "Bad-mouth observations are external doubts (competitive pressure, market timing) without examining the company's own framing",
+        "Generic 'be skeptical' without naming specifics",
+        "Fewer than 2 observations"
+      ],
+      "partial_credit": "Score 0.5 if 2 observations are external-only with no structural-skepticism observation about the company's own framing."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "weight": 0.5,
+      "section": "Confidence and Open Questions",
+      "test": "Output states integer confidence (1-10) for both (1) quality of demand evidence and (2) testability of hypotheses. Lists 2-3 specific open questions, each naming a metric, ratio, or specific fact (not generic 'more market data').",
+      "fail_modes": [
+        "No confidence stated, or confidence stated for only one of the two calls",
+        "Open questions are generic",
+        "Fewer than 2 open questions"
+      ],
+      "partial_credit": "Score 0.5 if confidence stated for both but only 1 specific open question, OR confidence for one with 2+ specific questions."
+    },
+    {
+      "id": "anti-pitch-discipline",
+      "weight": 0.5,
+      "section": "any (analysis-wide)",
+      "test": "Output explicitly avoids pitch language about the company's own product. The audit reframes any pitch language found in inputs as bad-data risk, rather than absorbing it as fact. Pass criterion: the analysis stays in customer-side framing throughout — talking about prospects' lives, problems, past behaviors — not about how the company's product solves them.",
+      "fail_modes": [
+        "Analysis describes the product's value proposition as fact rather than as hypothesis to be tested",
+        "Output reads as a sales pitch dressed up as research",
+        "Founder claims about the product are treated as evidence rather than as claims to falsify"
+      ],
+      "partial_credit": "Score 0.5 if most of the analysis is customer-framed but one section drifts into pitch language."
+    },
+    {
+      "id": "falsifying-answers-named",
+      "weight": 1.0,
+      "section": "The Big Three",
+      "test": "v1 STRICT: Each of the Big Three questions includes a specific falsifying answer — a named observable response that would prove the hypothesis WRONG. Generic 'we'd update our view' fails; specific 'no, AWS-as-counterparty has always been acceptable' passes. At least 2 of 3 questions must have named falsifying answers for full credit.",
+      "fail_modes": [
+        "Falsifying answer is 'we'd know more' or 'it would update our view'",
+        "Only 1 of 3 questions has a named falsifying answer",
+        "Falsifying answer is itself a hypothetical, not a specific observable response"
+      ],
+      "partial_credit": "Score 0.5 if 1 of 3 questions has a named falsifying answer with specifics; 1.0 if all 3 do.",
+      "v1_strict_note": "v1 strict-mode item. Strong Mom Test analyses pre-mortem their own questions by naming what answer would invalidate the underlying hypothesis. Discrimination target: weak models name questions but not answers; strong models name both."
+    },
+    {
+      "id": "structural-skepticism",
+      "weight": 1.0,
+      "section": "Bad-Mouth Test",
+      "test": "v1 STRICT: At least one bad-mouth observation identifies a structural skepticism — something about the company's own framing of the problem, not just external doubts. The structural skepticism names an assumption baked into the company's language that may not survive contact with reality. Example: 'The phrase \"underserved Brazilian market\" assumes Brazilian buyers have the same demand profile as US/UK buyers. That's a structural assumption, not a market observation.'",
+      "fail_modes": [
+        "All bad-mouth observations are external (competitive pressure, market timing, regulatory risk)",
+        "Names a structural assumption but doesn't tie it to specific input language",
+        "Generic 'they might be biased' without identifying the specific bias"
+      ],
+      "partial_credit": "Score 0.5 if a structural-skepticism observation is named but doesn't quote the specific input language that contains the assumption.",
+      "v1_strict_note": "v1 strict-mode item. Strong Mom Test analyses are skeptical of the company's own framing, not just of external risks. Discrimination target: weak models question whether the market exists; strong models question whether the company's description of the market is itself contaminated by founder hopes."
+    },
+    {
+      "id": "prior-conversation-flaw",
+      "weight": 1.0,
+      "section": "Confidence and Open Questions",
+      "test": "v1 STRICT: At least one open question identifies a specific prior-conversation flaw — something about how customer evidence in the inputs was gathered that contaminates the data. Example: 'What was the context of the customer quote \"we love it\"? Was the founder in the room? Was the prospect aware they were being interviewed for a fundraising pitch? If yes to either, the quote is bad data regardless of its content.'",
+      "fail_modes": [
+        "Open questions are about market data only, not about how existing data was gathered",
+        "Generic 'we'd want to validate this' without naming the contamination risk",
+        "No examination of the conversation methodology behind input claims"
+      ],
+      "partial_credit": "Score 0.5 if a prior-conversation-flaw is hinted at (e.g., 'we should re-interview') but no specific contamination risk is named.",
+      "v1_strict_note": "v1 strict-mode item. Strong Mom Test analyses examine the methodology of prior customer conversations, not just the content. Discrimination target: weak models trust the inputs; strong models examine how the inputs were gathered."
+    }
+  ],
+
+  "validation": {
+    "ground_truth_expected_score_min": 0.85,
+    "ground_truth_note": "No ground-truth verdicts exist for cases under this rubric (Mom Test diagnoses are inherently adversarial to inputs; the rubric scores rigor of skeptical reading, not agreement on conclusions). Strong analyses on cases that contain real bad-data signals (most do) should score 0.85-1.00 on v1. Cases with notably-high-quality demand evidence (rare) may score lower because there's less bad data to flag — that's signal, not error.",
+    "discrimination_targets": {
+      "strong_analysis": "≥ 0.85",
+      "decent_analysis": "0.65 - 0.80",
+      "mediocre_analysis": "0.30 - 0.55",
+      "weak_analysis": "< 0.30"
+    },
+    "pass_threshold": 0.75,
+    "pass_threshold_rationale": "Pass threshold at 0.75 of total weight (7.875 absolute on 10.5 total). Matches the other 4 v1 rubrics for cross-book score comparability in multi-book synthesis. The Mom Test rubric is calibrated to the same band — strong Mom-Test-aware analyses cluster at 0.85-1.00, weak ones below 0.55."
+  }
+}

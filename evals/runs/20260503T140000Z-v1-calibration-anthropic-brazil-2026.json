@@ -1,0 +1,165 @@
+{
+  "report_type": "v1_calibration_demo",
+  "generated": "2026-05-03T14:00:00Z",
+  "case_id": "anthropic-brazil-2026",
+  "purpose": "Demonstrate v1 rubric discrimination spread by re-judging the existing Anthropic-Brazil analyses (originally scored 1.000 across all 4 books on v0) against the v1 strict-mode items. Per-item v1 scores are derived from the original analyses' content as documented in the v0 run reports' judge reasoning fields. This report does NOT re-run the analyst — it scores the existing analyses against the new strict items.",
+
+  "v0_baseline": {
+    "crossing-the-chasm-v0": 1.000,
+    "obviously-awesome-v0": 1.000,
+    "predictable-revenue-v0": 1.000,
+    "play-bigger-v0": 1.000,
+    "spread": 0.000,
+    "discrimination_finding": "v0 produced zero spread across 4 books — all strong analyses scored 100%. The compressed-discrimination problem documented in gtmstack honest assessment."
+  },
+
+  "v1_results": {
+    "crossing-the-chasm-v1": {
+      "v0_score_carried_forward": 7.5,
+      "v1_strict_items": [
+        {
+          "id": "structural-difference-not-better",
+          "raw_score": 0.5,
+          "weight": 1.0,
+          "weighted": 0.5,
+          "reasoning": "Whole product gap section names structural items (Anthropic-direct attestation vs. Bedrock-mediated, BRL-direct vs. USD-only with FX exposure) — these have structural reasoning embedded but it's not the headline framing. Partial credit: structural reasoning is implicit but not explicitly framed as 'structural reason existing solutions fail.' A v0-passing analysis hit specificity well but didn't elevate structural difference to first-class language."
+        },
+        {
+          "id": "flip-trigger-named",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "Open Questions section explicitly names flip-triggers: 'Pilot-to-production conversion rate at 4 named banks — if even one has standardized on Claude in production, the position shifts to approaching the chasm' (named flip-direction). 'AWS Bedrock contracts already satisfying LGPD/data residency without Anthropic-direct paperwork — if yes, the whole-product gap shrinks materially and crossing is meaningfully cheaper' (named flip-direction). Multiple flip-triggers with specific values."
+        },
+        {
+          "id": "non-flagged-mode-justified",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "Failure Modes Flagged section explicitly addresses non-flagged modes: 'Wrong beachhead is not flagged because the diagnostic is recommending a beachhead, not assessing one.' 'Skipping the bowling pin is not flagged because the company has not yet committed to a sequence to skip.' Both with rationale tied to inputs."
+        }
+      ],
+      "v1_strict_weighted": 2.5,
+      "v1_total_weighted": 10.0,
+      "v1_total_weight": 10.5,
+      "v1_score": 0.952,
+      "v0_to_v1_delta": -0.048
+    },
+
+    "obviously-awesome-v1": {
+      "v0_score_carried_forward": 7.5,
+      "v1_strict_items": [
+        {
+          "id": "structural-attribute-test",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "All 4 unique attributes are structural, not feature improvements: (1) 'Frontier-model provider whose public identity is built on safety research and interpretability' — identity-level structural property; (2) 'Direct counterparty relationship with the lab' — contractual structural property unavailable through Bedrock; (3) 'Claude's specific technical profile on long-context reasoning' — model-architectural property; (4) 'Integrated Brazilian residency + LGPD + local support from the model maker' — bundled-offer structural property. None are 'better/faster/cheaper' claims."
+        },
+        {
+          "id": "named-rejection",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "Worst-Fit Customer names a specific concrete rejection: 'CIOs and CISOs at Fortune 500 banks, healthcare systems, defense contractors, and federal agencies who require FedRAMP, HIPAA-aligned, on-prem / VPC, or BYO-model inference as table-stakes.' Named role + 4 named industries + 4 specific blocking criteria. Plus secondary worst-fit (free-tier hobbyists) with rationale."
+        },
+        {
+          "id": "trend-anti-claim",
+          "raw_score": 0.5,
+          "weight": 1.0,
+          "weighted": 0.5,
+          "reasoning": "Single trend invoked (LGPD enforcement maturation + ANPD AI-specific guidance) with rationale tying to safety-positioning structural attribute. However, no explicit anti-claim — the analysis doesn't name what trend it's deliberately NOT invoking and why. Partial: the implicit exclusion is real (no 'AI is transforming everything' framing) but not called out as a discipline against trend slop."
+        }
+      ],
+      "v1_strict_weighted": 2.5,
+      "v1_total_weighted": 10.0,
+      "v1_total_weight": 10.5,
+      "v1_score": 0.952,
+      "v0_to_v1_delta": -0.048
+    },
+
+    "predictable-revenue-v1": {
+      "v0_score_carried_forward": 7.5,
+      "v1_strict_items": [
+        {
+          "id": "trigger-event-named",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "ICP Diagnosis includes specific observable triggers: 'observed Bedrock/API usage threshold' (measurable threshold), 'public AI initiative announcement' (observable event), 'competitor pilot reaching production with public reference' (named signal). All three are observable signals a sales team could detect, not generic 'buying interest.'"
+        },
+        {
+          "id": "economics-math",
+          "raw_score": 0.5,
+          "weight": 1.0,
+          "weighted": 0.5,
+          "reasoning": "Conversion Math section names 6 specific ratios with Brazilian-specific calibration (15-30% close rates calibrated lower for new market). However, no explicit CAC payback calculation — the cost of the SDR/AE motion is not translated into a profitability threshold. Partial: economic context is implied (Brazilian-discounted conversion ranges) but the math that turns ratios into hire/no-hire decisions isn't shown."
+        },
+        {
+          "id": "counter-prescription",
+          "raw_score": 0.5,
+          "weight": 1.0,
+          "weighted": 0.5,
+          "reasoning": "Outbound Recommendation declines broad outbound AND prescribes narrow outbound conditionally — the analysis itself is structured as a counter-prescription. However, no explicit 'circumstance under which the recommendation would be wrong' is named. The pivot conditions are implicit (if Q3 conversion fails, kill SDR) but not explicitly framed as 'this recommendation is wrong if...' Partial: counter-conditions are hinted but not specifically named as inversion triggers."
+        }
+      ],
+      "v1_strict_weighted": 2.0,
+      "v1_total_weighted": 9.5,
+      "v1_total_weight": 10.5,
+      "v1_score": 0.905,
+      "v0_to_v1_delta": -0.095
+    },
+
+    "play-bigger-v1": {
+      "v0_score_carried_forward": 7.5,
+      "v1_strict_items": [
+        {
+          "id": "uncomfortable-test-applied",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "POV explicitly names what's wrong with three competitor categories: 'OpenAI/Microsoft and Google Cloud compete on global enterprise distribution and model capability — their narrative, contracts, and trust posture are built for US/EU compliance regimes.' 'Brazilian incumbents (Stefanini, TOTVS, CI&T) have local advantage and procurement fluency but do not build frontier models; they are integrators wrapping someone else's API.' 'Neither side is structurally positioned to say frontier-grade safety research, attested under Brazilian law.' Three competitor worldviews explicitly excluded."
+        },
+        {
+          "id": "king-vs-niche-justified-with-economics",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "Category Strategy section justifies path-B (niche subcategory) with case-specific economics: 'Compete-in-existing loses because the existing category-king is Microsoft with bundled Azure distribution we cannot match in 18 months — being a structural #3 against bundled distribution is the worst position. Per Play Bigger, fighting for #1 in a category where the king-crowning dynamics favor an incumbent is the worst position — high cost, low expected share.' Applies framework to Anthropic's specific position vs. Microsoft, not generic restatement."
+        },
+        {
+          "id": "strike-failure-precondition",
+          "raw_score": 1.0,
+          "weight": 1.0,
+          "weighted": 1.0,
+          "reasoning": "Lightning Strike Sequencing explicitly names strike-failure preconditions: 'Firing before items 1, 2, 3 are real produces a vapor POV.' Plus 5 named readiness criteria each with go/no-go gates. Plus 'No publicly disclosed plans for São Paulo office or local hires as of Q1 2026' as a current red gate. Specific input signals tied to fire/delay decision."
+        }
+      ],
+      "v1_strict_weighted": 3.0,
+      "v1_total_weighted": 10.5,
+      "v1_total_weight": 10.5,
+      "v1_score": 1.000,
+      "v0_to_v1_delta": 0.000
+    }
+  },
+
+  "v1_summary": {
+    "spread": "0.905 to 1.000 (9.5 percentage point spread; v0 had 0.0 spread)",
+    "books_with_perfect_v1_scores": ["play-bigger-v1"],
+    "books_with_partial_v1_scores": ["crossing-the-chasm-v1", "obviously-awesome-v1", "predictable-revenue-v1"],
+    "discrimination_finding": "v1 produces a 9.5-point spread on the same Anthropic-Brazil case where v0 produced 0 points of spread. The strict items correctly identify that Play Bigger's analysis was the strongest (engineered specifically for category-design rigor, hits all 3 strict items at 1.0), while Predictable Revenue's analysis was the weakest in v1 terms (missed economics-math and counter-prescription specifics, 90.5%). The 4-book convergence still holds (all books remain above pass threshold of 0.75); the spread reveals which book's analysis engaged structural reasoning most rigorously.",
+    "implications_for_calibration": [
+      "Strict items correctly target the upper-end discrimination problem. v0 → v1 score deltas are -0.0 to -0.095 across the 4 books on the same case.",
+      "Play Bigger's analysis was already engineered to do uncomfortable POV testing, case-specific king-vs-niche economics, and explicit strike-failure preconditions — it scored 1.0 on v1 because the framework prompts already enforce these patterns. This is the calibration baseline: a fully-strict-aligned analysis hits 1.0 on v1.",
+      "Other books' analyses have headroom on specific strict items: Chasm misses structural-difference-not-better; OA misses trend-anti-claim; PR misses economics-math and counter-prescription. These are the next-iteration improvements to the framework summaries and prompts.",
+      "v0 reports remain valid for backward comparison; v1 is the new default for forward runs."
+    ]
+  },
+
+  "next_steps": [
+    "Update obviously-awesome and predictable-revenue prompts to surface trend-anti-claim, economics-math, and counter-prescription patterns explicitly so future analyses hit those items at 1.0",
+    "Update crossing-the-chasm prompt to surface structural-difference-not-better as a first-class output requirement",
+    "Re-run all 4 books on a new case (live or fresh) to validate v1 spread holds across cases, not just Anthropic-Brazil",
+    "Add the v0 ground-truth verdicts (slack-2014, zoom-2018) re-judged against v1 to establish the historical baseline"
+  ]
+}

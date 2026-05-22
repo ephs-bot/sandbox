@@ -1,0 +1,96 @@
+{
+  "book": "crossing-the-chasm",
+  "case_id": "gtmstack-2026",
+  "case_type": "self_diagnostic",
+  "rubric_id": "crossing-the-chasm-v1",
+  "analysis_model": "claude-subagent",
+  "judge_model": "claude-subagent",
+  "run_mode": "self_diagnostic",
+  "run_mode_note": "gtmstack running on itself. Author authored framework, prompt, rubric, case, AND judges output. Self-grading bias acknowledged.",
+  "timestamp_iso": "2026-05-03T15:00:00Z",
+  "total_weight": 10.5,
+  "weighted_sum": 10.0,
+  "final_score": 0.952,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    {
+      "id": "talc-stage-decisive",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Names 'Innovators' decisively, no hedging across stages. Cites multi-evidence: zero paying customers, zero external GitHub issues/PRs, friend-of-author anecdotes with zero follow-through, the case file's own 'dogfooding, not customer evidence' admission. Explicitly distinguishes Innovator buying motivation (curiosity) from Visionary buying motivation (staked political capital / budget / calendar) — and names the absence of the latter."
+    },
+    {
+      "id": "chasm-position-on-buying-motivation",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "'Before the chasm' decisive. Reasoning grounded in buying motivation: 'curiosity-led (this is cool) vs advantage-led (I will buy this incomplete product because the upside is asymmetric and I'm willing to be the reference).' Names the absence of any single buyer who has staked something. Does not lean on revenue/customer count alone — leans on the buying-motivation observation that polite interest is not visionary commitment."
+    },
+    {
+      "id": "beachhead-role-level-specificity",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Single segment named with role + size + industry + filters: 'founder-CEOs at YC-network seed-to-Series-A B2B SaaS startups, who use Claude Code, have read at least one of the 5 canonical books, are stuck on a named GTM decision.' Buyer role explicit (founder-CEO). Size band explicit (seed-Series A). Industry explicit (B2B SaaS). Plus access-channel filter (YC alumni graph + Claude Code community). Single beachhead, not parallel."
+    },
+    {
+      "id": "whole-product-gap-concrete-named-items",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "6 concrete items: measured first-run completion rate (named feature class — telemetry/completion measurement), named non-author reference customer (named reference customer type per rubric clause d), founder-readable deliverable example from non-author case (specific feature class), telemetry (install/active/completion — named metric class), commitment-ladder mechanism (specific feature class), 60-second deliverable preview (specific feature class). Items are gap-named, not aspirational ('build trust' style). Concrete enough to verify presence/absence directly. Note: lacks named-tool integrations (Okta/SCIM-style) because the product stage doesn't have that surface yet — the gaps named are appropriate to a pre-visionary product."
+    },
+    {
+      "id": "bowling-pin-falling-rationale",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "3 pins with causal reference-value rationale: (1) Series A/B founder-CEOs (same buyer profile, 'Pin 1 founder is Pin 2 buyer one funding round later'), (2) Heads of GTM at Series B/C (the founder-stated original ICP, reachable only after lower-tier reference base — explicit inversion of founder's instinct), (3) GTM consultants (need named-customer base + social proof to overcome structural sell-versus-enable conflict). Each rationale is causal, not TAM-based. Plus explicit non-recommendation of VC portfolio operators with rationale."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "3 modes flagged with direct quotes from case file. Confused TALC: quotes the expansion-thesis framing presupposing visionary traction exists. Whole product blindness: quotes 'The skill could be perfect; it could be broken; the founder cannot tell from inside' as the textbook tell. Parallel pursuit: quotes the 4-ICP-in-one-breath listing from the case file ('GTM leads at Series B/C... founder-CEOs <50... growth/strategy consultants... portfolio-GTM operators'). All citations match the input."
+    },
+    {
+      "id": "visionary-growth-vs-crossing-distinction",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Dedicated section. Names absence of growth as the signal itself. Goes further than the rubric's N/A default by explicitly naming the future trap: 'when the first 5-10 external installs land, the author will be tempted to call that early adoption or approaching the chasm. It is not. Five installs without runs on live problems is five Innovator events.' Distinguishes install-count from buying-motivation as the test for visionary-vs-crossing — exactly Moore's central distinction."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "TALC 9/10, Chasm 9/10 — both as integers. 3 specific named-metric open questions: (1) end-to-end completion rate on first-run external installs with named thresholds (>=70% / <30%), (2) live-problem-run rate (5+ external operators threshold), (3) 10-operator flip cohort with completion thresholds. All named metrics, none are 'more research needed' style."
+    },
+    {
+      "id": "structural-difference-not-better",
+      "raw_score": 0.5,
+      "weight": 1.0,
+      "weighted_score": 0.5,
+      "reasoning": "Partial credit. Names a structural property — 'architecturally undirected by design' / 'prescription not capability' / 'prescriptive rubrics encoded as runnable evals are absent from generic assistants by design' — and a verification path (test ChatGPT on the same case). This is structural framing (design intent / epistemic posture), not 'better/faster/cheaper.' However, the framing is gtmstack's positive architectural property rather than a sharp 'existing solutions structurally cannot provide X because of Y' claim of the Anthropic-Brazil counterparty-type sharpness. The structural reason is named but not as crisply as the rubric's pass example. The analysis itself acknowledges 'the structural argument is sound; the demand evidence for it is zero,' which is honest but underscores that the structural-vs-better claim is lighter than a fully-passing v1 strict-mode item."
+    },
+    {
+      "id": "flip-trigger-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Open Question #3 names a quantitative threshold with two flip-directions: '>=6 completed runs out of 10 invited operators within 30 days -> chasm position shifts from before the chasm to early visionary segment forming. <=2 completed runs -> diagnosis hardens to before the chasm, demand-signal hypothesis falsified, recommend pivoting or ending experiment.' Specific cohort size (10), specific window (30 days), specific count thresholds (>=6 / <=2), specific completion definition (skill invoked -> deliverable produced -> operator confirms move they would take), and named flip-direction at each threshold."
+    },
+    {
+      "id": "non-flagged-mode-justified",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Dedicated 'Explicitly NOT flagged, with rationale' subsection. Wrong beachhead: 'gtmstack has not committed to any beachhead, so wrong-beachhead is structurally unflaggable here. If the author commits to Series B/C GTM leads as a beachhead post-this-analysis without re-validating with prospects, then wrong-beachhead becomes flaggable.' Skipping the bowling pin: 'requires the company to have already crossed via a beachhead win... gtmstack is at the Innovator stage and has not crossed anything... stage-mismatch unflaggable, not a missed signal.' Both name the precondition that would need to be present in the inputs to flag, satisfying the v1 strict requirement."
+    }
+  ],
+  "analysis_summary": "Moore's diagnosis: gtmstack is at the Innovator stage, before the chasm, with zero validated visionary buyers. The expansion thesis ('get 10 external operators running on live problems') presupposes a visionary segment that does not yet exist — the actual work is getting to one. The recommended first-visionary segment is founder-CEOs at YC-network seed-to-Series-A B2B SaaS startups in the Claude Code community, reached via the YC alumni graph; the Series B/C GTM leads ICP the founder originally named is Pin 3, not Pin 1. Three Moore failure modes are flagged with direct case-file quotes: confused TALC stage (founder treats Innovator-stage as visionary-stage), whole product blindness (no telemetry, no named non-author reference, no value preview), parallel pursuit (4 ICPs in one breath). The single most important missing measurement is a 10-operator-cohort flip experiment over 30 days — without it, the December 2026 commercialize-vs-side-project decision will be made on vibes."
+}

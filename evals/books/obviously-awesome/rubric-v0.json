@@ -1,0 +1,127 @@
+{
+  "rubric_id": "obviously-awesome-v0",
+  "framework_source": "framework.md",
+  "scoring_model": "binary_with_partial",
+  "scoring_doc": "Each item scored 0 / 0.5 / 1. Item score multiplied by item weight. Final score = sum(item_score * weight) / sum(weight). Pass threshold = 0.75. Items must be observable from the model's output text alone (LLM judge applies them).",
+  "judge_instructions": "You are a strict but fair judge applying this rubric to a model's positioning analysis. For each item: (1) read the test, (2) inspect the named output section, (3) score 1.0 if all conditions met, 0.5 if partially met, 0 if not met. The 'critical_application' mode means: a model that critically engages with Dunford's framework on contested claims should NOT be penalized as long as the framework's core mechanics are applied rigorously. Score the application, not the agreement.",
+  "mode": "critical_application",
+
+  "items": [
+    {
+      "id": "competitive-alternatives-named-specifically",
+      "weight": 1.0,
+      "section": "Competitive Alternatives",
+      "test": "Output names at least 3 specific competitive alternatives by product/category. At least one must be a non-obvious alternative (legacy tool, manual workflow, 'do nothing,' or status quo) — not just direct competitors.",
+      "fail_modes": [
+        "Names only direct competitors ('the obvious players in the category')",
+        "Lists 'the market' or 'similar tools' generically",
+        "Misses the status-quo / 'do nothing' alternative when it's clearly the dominant alternative"
+      ],
+      "partial_credit": "Score 0.5 if 2+ specific alternatives named but no non-obvious one (status quo, legacy, manual, doing nothing) is included."
+    },
+    {
+      "id": "unique-attributes-specific-and-asymmetric",
+      "weight": 1.0,
+      "section": "Unique Attributes",
+      "test": "Output lists at least 3 specific capabilities/features this company has, where each attribute is concretely named (a feature, capability, model behavior, or architectural property) AND each attribute is demonstrably absent from ALL the named competitive alternatives.",
+      "fail_modes": [
+        "Generic attributes ('better UX,' 'faster,' 'AI-powered,' 'developer-loved')",
+        "Attributes that competitors also have (named alternative also ships AI assist, named alternative also has real-time collaboration)",
+        "Fewer than 3 attributes",
+        "Attributes that are claims ('most accurate') without naming the underlying capability"
+      ],
+      "partial_credit": "Score 0.5 if 3+ attributes named but 1 is generic OR 1 is shared with a named competitor; score 0.5 if attributes are specific but only 2 are present."
+    },
+    {
+      "id": "value-themes-link-attributes-to-outcomes",
+      "weight": 1.0,
+      "section": "Value Themes",
+      "test": "For each unique attribute, the value theme connects it to a specific customer outcome: time saved (with magnitude), money made/saved (with rough scale), risk reduced (named risk), or capability unlocked (named capability that wasn't possible before). Themes must be outcomes, not restated attributes.",
+      "fail_modes": [
+        "Theme is a restatement of the attribute ('the AI capability means customers get AI')",
+        "Generic outcome ('more productive,' 'faster development,' 'better collaboration')",
+        "No magnitude or scale named where the theme calls for one (e.g., 'saves time' without saying how much)",
+        "Themes outnumber attributes — adding outcomes that don't tie back to a specific named attribute"
+      ],
+      "partial_credit": "Score 0.5 if at least one theme is specific and outcome-shaped but others are generic, or if all themes are outcome-shaped but none have magnitude/scale."
+    },
+    {
+      "id": "best-fit-customer-role-level",
+      "weight": 1.0,
+      "section": "Best-Fit Customer",
+      "test": "Best-fit customer specified at role level: a named buyer title within a named industry, size band, and geography. NOT category-level ('SMBs,' 'tech companies,' 'developers,' 'knowledge workers'). The role+industry+size+geography combination should be tight enough to identify approximately who the customer is.",
+      "fail_modes": [
+        "Category-level customer ('mid-market SaaS,' 'tech startups')",
+        "Role named but no industry/size context ('VP of Sales')",
+        "Industry+size named but no buyer role",
+        "Geography missing when it materially matters (regulated industry, specific market)"
+      ],
+      "partial_credit": "Score 0.5 if 3 of 4 dimensions (role / industry / size / geography) are specified but one is generic."
+    },
+    {
+      "id": "market-category-non-default-with-tradeoffs",
+      "weight": 1.5,
+      "section": "Market Category",
+      "test": "Output names a market category, explicitly compares it to the default/obvious category framing, and names BOTH (a) what the chosen category gains (which competitive alternatives become irrelevant or which attributes become central) AND (b) what it gives up (education burden, slower comprehension, narrower audience, or specific competitor advantage that surfaces).",
+      "fail_modes": [
+        "Picks the obvious default category without alternatives considered",
+        "Names a non-default category but doesn't compare to the default",
+        "Names a non-default category but only states the upside, not the give-up",
+        "Says 'we're a new category' without naming the category or what triggers it"
+      ],
+      "partial_credit": "Score 0.5 if a non-default category is named with comparison to default but only one of {gain / give-up} is explicitly stated.",
+      "discrimination_note": "This is the 1.5x-weighted item. Generic AI output picks the obvious default and competes there as 'better X.' Strong positioning analysis chooses a frame where the unique attributes are central — and explicitly names the trade-off. The score gap on this item is the single biggest signal of positioning analysis quality."
+    },
+    {
+      "id": "worst-fit-customer-named",
+      "weight": 0.5,
+      "section": "Worst-Fit Customer",
+      "test": "Output names a specific worst-fit customer segment that should NOT buy this product. Named at role/industry level, not generic ('not for everyone'). The exclusion should be defensible (the unique attributes don't help this customer, or the value themes don't apply).",
+      "fail_modes": [
+        "Says 'not for everyone' or 'not all customers' without naming a real exclusion",
+        "Names an exclusion at category level ('not enterprises') without specifying which kinds of enterprises",
+        "Worst-fit is the same as best-fit's complement — too symmetric to be informative ('best fit is software, worst fit is non-software')"
+      ],
+      "partial_credit": "Score 0.5 if a worst-fit is named at category level but lacks role/industry specificity, or if the exclusion is defensible but only weakly tied to the framework."
+    },
+    {
+      "id": "trend-layer-deliberate",
+      "weight": 0.5,
+      "section": "Trend Layer",
+      "test": "Either: (a) one specific trend is invoked AND a one-sentence rationale connects the trend to why it strengthens THIS positioning specifically, OR (b) explicit decline to layer a trend with one-sentence rationale for why no trend strengthens this positioning right now.",
+      "fail_modes": [
+        "Layers 'AI' or other trends without rationale tying the trend to the unique attributes",
+        "No trend section at all (dodges the question)",
+        "Layers multiple trends to hedge — 'we benefit from AI, regulatory shifts, and remote work' — none with concrete rationale",
+        "Generic trend invocation ('the world is changing fast,' 'AI is transforming everything')"
+      ],
+      "partial_credit": "Score 0.5 if a trend is invoked with rationale but the rationale could equally apply to any product in the space."
+    },
+    {
+      "id": "positioning-statement-specific",
+      "weight": 1.0,
+      "section": "Positioning Statement",
+      "test": "Output produces a tight 1-2 sentence positioning statement that explicitly combines best-fit customer + primary value theme + competitive alternative (named). The statement should be specific enough that it could NOT equally describe at least one named competitor.",
+      "fail_modes": [
+        "Statement is a tagline (witty but generic)",
+        "Statement could equally describe a named competitor",
+        "Statement omits one of {best-fit customer, value theme, competitive alternative}",
+        "Statement is multi-paragraph or jargon-loaded — fails the specificity-and-tightness combination"
+      ],
+      "partial_credit": "Score 0.5 if the statement combines all three ingredients but one is generic, or if the statement is specific but omits one ingredient."
+    }
+  ],
+
+  "validation": {
+    "ground_truth_expected_score_min": 0.95,
+    "ground_truth_note": "There is no ground truth verdict for cases analyzed under this rubric (positioning is genuinely contested). The rubric scores rigor of framework application, not agreement on the category choice or best-fit customer.",
+    "discrimination_targets": {
+      "strong_analysis": "≥ 0.90",
+      "decent_analysis": "0.70 - 0.85",
+      "mediocre_analysis": "0.30 - 0.55",
+      "weak_analysis": "< 0.30"
+    },
+    "pass_threshold": 0.75,
+    "pass_threshold_rationale": "Same threshold as Crossing the Chasm rubric (0.75). The two rubrics are calibrated to the same total weight (7.5) so cross-book scores are directly comparable."
+  }
+}

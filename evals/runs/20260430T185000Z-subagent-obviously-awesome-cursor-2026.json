@@ -1,0 +1,24 @@
+{
+  "book": "obviously-awesome",
+  "case_id": "cursor-2026",
+  "rubric_id": "obviously-awesome-v0",
+  "analysis_model": "claude-subagent-default",
+  "judge_model": "claude-in-session",
+  "run_mode": "subagent_blind",
+  "timestamp_iso": "2026-04-30T18:50:00Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.5,
+  "final_score": 1.0,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    { "id": "competitive-alternatives-named-specifically", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "5 alternatives named: Copilot in VS Code/Visual Studio, Windsurf (Codeium), open-source stacks (Continue.dev, Cline), status quo (vanilla editor + ChatGPT tab — manual workflow), doing nothing / banning AI in the IDE. Both non-obvious alternatives (status quo, do-nothing) explicitly included." },
+    { "id": "unique-attributes-specific-and-asymmetric", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "4 attributes, each demonstrably absent from named alternatives: multi-frontier-model routing (Copilot anchored to one lab, Windsurf narrower, OSS requires wiring); codebase-aware agentic workflows native to editor (alternatives are bolt-ons or side-panels); VS Code-fork product surface (alternatives constrained by host-IDE plugin contracts); brand pull at density (named bottom-up moat). Each attribute concrete, not generic." },
+    { "id": "value-themes-link-attributes-to-outcomes", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "All 4 themes connect attributes to specific outcomes with magnitudes: model uptake in days vs. quarterly vendor release (time-to-frontier metric); 10+ file changes from one prompt instead of half-day mechanical edits (specific unit-of-work); 130%+ NDR as teams standardize (named retention metric); near-zero CAC for Business tier (cost-of-acquisition outcome)." },
+    { "id": "best-fit-customer-role-level", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'VP of Engineering or Engineering Manager at a 50-to-1,000-engineer venture-backed software company (fintech, AI/ML, dev tools, consumer internet) headquartered in the US, UK, or EU.' Buyer title + industry (named verticals) + size band + geography. Plus precondition: ICs already adopted bottom-up. Tightly specified." },
+    { "id": "market-category-non-default-with-tradeoffs", "raw_score": 1.0, "weight": 1.5, "weighted_score": 1.5, "reasoning": "Default category named explicitly ('AI coding assistant') with why-it-loses argument (Copilot's Microsoft distribution dominates the frame). Chosen category ('the AI-native code editor for production engineering teams — sibling to VS Code, not Copilot peer') with explicit gains (differentiation, pricing power, right buyer in eng leadership not IT, defensible moat from editor-not-plugin status) AND explicit give-ups (slower comprehension, no easy-bundling story, F500 buyer treats 'new IDE' as heavier security review)." },
+    { "id": "worst-fit-customer-named", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "'CIOs and CISOs at Fortune 500 banks, healthcare systems, defense contractors, and federal agencies who require FedRAMP, HIPAA, on-prem / VPC, or BYO-model.' Role + 4 named industries + specific blocking criteria. Plus secondary: free-tier hobbyists with rationale ('brand asset, not revenue segment')." },
+    { "id": "trend-layer-deliberate", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "Invokes ONE specific trend (model-provider multipolarity — labs trading frontier lead quarterly) with concrete rationale: in one-lab world Copilot wins via distribution; in multipolar world the editor that routes per-task wins, which is structurally what Cursor does. Plus explicit decline of generic 'AI is eating software' trend with rationale (would equally describe every named competitor)." },
+    { "id": "positioning-statement-specific", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'For engineering managers and VPs of Engineering at venture-backed software companies whose ICs have already adopted it bottom-up, Cursor is the AI-native code editor — a category sibling to VS Code, not a plugin like Copilot — that delivers fork-level agentic workflows and per-task frontier-model routing the host-IDE alternatives structurally cannot ship.' Combines all three ingredients (best-fit customer + primary value theme + competitive alternative). Specific enough that Copilot could not equally claim this (Copilot IS a plugin by this framing)." }
+  ]
+}

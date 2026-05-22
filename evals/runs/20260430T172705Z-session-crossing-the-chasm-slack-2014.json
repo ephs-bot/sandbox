@@ -1,0 +1,79 @@
+{
+  "book": "crossing-the-chasm",
+  "case_id": "slack-2014",
+  "rubric_id": "crossing-the-chasm-v0",
+  "analysis_model": "claude-in-session",
+  "judge_model": "claude-in-session",
+  "run_mode": "in_session",
+  "run_mode_note": "Both analysis and judge phases performed by Claude inside an active Claude Code conversation. No API key required. The analysis was written from case inputs only (ground_truth stripped); the judge applied the rubric mechanically with cited evidence from the analysis text. Self-grading bias is the known limitation of this mode — for unbiased evaluation use the API runner with split analysis/judge models.",
+  "timestamp_iso": "2026-04-30T17:27:05Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.5,
+  "final_score": 1.0,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "methodology_note": "Claude wrote the ground_truth verdict for slack-2014 in the same session, prior to this run. So this run validates rubric mechanics (does the rubric correctly score a strong analysis at ~1.0) rather than testing GTM reasoning on a novel case. For a clean test of premise #1, use a case Claude has not previously analyzed.",
+  "item_scores": [
+    {
+      "id": "talc-stage-decisive",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "'Early Adopters' stated decisively. Cites visionary buyer profile, free-tier dominance, IC purchasing, 'startup darling' press framing, fun/magic/addictive feedback pattern. No hedging across stages."
+    },
+    {
+      "id": "chasm-position-on-buying-motivation",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "'Approaching the chasm' picked decisively. Reasoning explicitly contrasts visionary buying criteria (competitive advantage, novelty, peer signals) vs. pragmatist criteria (segment references, completeness, RFP-grade security). Buying-motivation framing is the basis for the call, not growth."
+    },
+    {
+      "id": "beachhead-role-level-specificity",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Beachhead specified at role level: VP Engineering / CTO / Head of Engineering at 50-300-person software-adjacent companies in SF/NYC/Seattle/Austin. Single beachhead, with named buyer titles and size+industry+geography specificity."
+    },
+    {
+      "id": "whole-product-gap-concrete-named-items",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "7 items, all concrete: Okta SAML and Google Workspace SSO; SCIM provisioning; role-based admin / audit log / channel governance; named reference customers at 100-500-employee software companies; integration directory naming GitHub, Jira, Salesforce, Zendesk, PagerDuty, Google Drive, Dropbox, Datadog, AWS CloudWatch; SLA with 99.9% uptime; SOC 2 Type II in progress. No generic items like 'better integrations.'"
+    },
+    {
+      "id": "bowling-pin-falling-rationale",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "4 segments listed with explicit reference-value falling rationale: tech-forward media falls to software-company references; agencies fall to tech+media reference set; 500-2000-employee tech companies fall to accumulated reference base. Each pin's rationale connects causally to the previous segment."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "All 3 strong-evidence Moore failure modes flagged with cited input quotes: parallel pursuit (cites 'all knowledge workers, all company sizes' from expansion thesis); confused TALC stage (cites 'email replacement for all teams' founder messaging); whole product blindness (cites the explicit list of missing SSO/SCIM/compliance/admin from signals)."
+    },
+    {
+      "id": "visionary-growth-vs-crossing-distinction",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Dedicated section makes the distinction explicit: '~8,000 DAU and growing rapidly trend is continued penetration of the visionary segment...not evidence of crossing into the early majority.' Names the specific founder mistake risk (reading the DAU graph and conflating two phenomena)."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Integer confidence stated for both: TALC 9/10, Chasm 8/10. Three named-metric open questions: paid-tier revenue concentration in 100+ seat teams, count of active Fortune 500 pilots, cohort retention curve past 50 workspace members. All three name a specific metric or status, none generic."
+    }
+  ],
+  "self_critique_observations": [
+    "Beachhead role choice (engineering leader) is defensible but not the only valid pick — CEO/COO at small tech companies is plausibly the buyer at the smaller end of the size band. Rubric doesn't penalize the choice as long as it's specific, but a peer reviewer could push.",
+    "Bowling pin sequence didn't engage with the future Microsoft Teams threat (Teams launched 2017, didn't exist in 2014 — but the late-majority pin could have anticipated the bundled-suite competitive landscape).",
+    "9 named integration tools is solid but didn't differentiate beachhead-critical (probably GitHub, Jira, Google Drive) from later-pin-nice-to-have (PagerDuty, AWS CloudWatch). A stronger answer would tier them."
+  ]
+}

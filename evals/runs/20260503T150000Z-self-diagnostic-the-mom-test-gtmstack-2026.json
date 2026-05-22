@@ -1,0 +1,96 @@
+{
+  "book": "the-mom-test",
+  "case_id": "gtmstack-2026",
+  "case_type": "self_diagnostic",
+  "rubric_id": "the-mom-test-v1",
+  "analysis_model": "claude-subagent",
+  "judge_model": "claude-subagent",
+  "run_mode": "self_diagnostic",
+  "run_mode_note": "gtmstack running on itself. Author authored everything. The Mom Test is the most-active book on this case because the case is presumptively contaminated by founder framing.",
+  "timestamp_iso": "2026-05-03T15:00:00Z",
+  "total_weight": 10.5,
+  "weighted_sum": 10.5,
+  "final_score": 1.000,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    {
+      "id": "hypothesis-audit-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Five load-bearing hypotheses (H1-H5) named in Hypothesis Audit, each with evidence cited verbatim from inputs and explicitly classified as fluff (compliments, hypotheticals, founder-authored category map, self-grading, dogfooding). The summary line tallies real-evidence count at zero across all five — the kind of explicit accounting the rubric wants to see."
+    },
+    {
+      "id": "bad-data-flagged-with-citations",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Five distinct bad-data signals flagged with verbatim block quotes from the case file: friend hypotheticals, LinkedIn vanity engagement, build-as-evidence, self-grading, founder-authored category map. Each is followed by a Mom Test category label and an explanation of why it's bad data."
+    },
+    {
+      "id": "past-behavior-probes-specific",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Past-Behavior Probes section provides 'Walk me through the last time...' and 'When was the last time you paid...' style questions for all five hypotheses. No 'would you' or 'could you imagine' constructions present. H3 explicitly addresses the self-grading trap by requiring a problem the author did not pre-frame."
+    },
+    {
+      "id": "big-three-falsifying",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "Three Big Three questions, each tied to a specific hypothesis (Q1->H1, Q2->H3, Q3->H1 commitment) and each followed by a named, observable falsifying answer (one-page-memo, 'I already knew or had already decided,' and 'send me the link'). The 1.5x-weighted item is fully engaged."
+    },
+    {
+      "id": "commitment-ladder-mapped",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Current state mapped to Level 0 explicitly with per-prospect breakdown (friends, LinkedIn replies). Next advancement names a specific scripted ask: a 45-minute live-run session converting to either a $1K paid pilot (Level 4) or two-peer referral (Level 2), skipping Level 1 deliberately and explaining why."
+    },
+    {
+      "id": "bad-mouth-test-applied",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Three observations: build-velocity-vs-demand-velocity confusion, politeness-bias of friend sample, and the structural skepticism about 'books-as-evals' / 'canonical example' as founder-language. Each is adversarial to the inputs without arguing the company is wrong. Counts toward both this item and structural-skepticism."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Integer confidence stated for both calls (2/10 evidence quality, 7/10 testability) with reasoning. Three open questions, each naming a specific fact (LinkedIn-impression-to-skill-completion conversion ratio, friend-quote conversation context, median end-to-end completion time and dropout point)."
+    },
+    {
+      "id": "anti-pitch-discipline",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Analysis stays in customer-side framing throughout. The case's own pitch language ('25 minutes vs $20K-$50K and 3 weeks') is reframed as H1 — a hypothesis to be falsified — not absorbed as fact. Synthesis quality is named 'decoration' and 'redundant' as failure modes, not pitched as value."
+    },
+    {
+      "id": "falsifying-answers-named",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 strict item fully met. All three Big Three questions have specific named observable falsifying answers, not generic 'we'd update our view' placeholders. Q1: one-afternoon-memo. Q2: 'most of it I already knew.' Q3: 'send me the link, I'll see if I have time.'"
+    },
+    {
+      "id": "structural-skepticism",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 strict item fully met. Bad-Mouth Test observation #3 quotes verbatim from the case file ('Establish books-as-evals as a category... the canonical example') and identifies two stacked structural assumptions baked into the company's own language: that the category exists and that being its canonical example is the goal. Ties the assumption to specific quoted input language as the rubric requires."
+    },
+    {
+      "id": "prior-conversation-flaw",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 strict item fully met. Open Question #2 names the prior-conversation-flaw explicitly for the two friend quotes: asks whether the prospect was aware they were being interviewed for demand validation, whether the founder framed the request, and whether the prospect understood the future cost of 'I'd run this' (their time, their reputation if they introduced it to a peer). Concludes that both headline 'validation' quotes are provisionally bad data until reconstructed."
+    }
+  ],
+  "analysis_summary": "Fitzpatrick's verdict on gtmstack is unambiguous: the case contains zero items of real demand evidence and a half-dozen items of bad data the case file itself partially names. The load-bearing hypothesis is H3 — that the multi-book synthesis prescribes moves a non-author operator would actually act on — and it is currently propped up entirely by the founder grading their own homework on cases the founder pre-framed. The commitment-ladder position is unambiguously Level 0 across every prospect interaction in the inputs, and the only move that converts hypothesis to evidence is one paying-or-time-committing non-friend operator running gtmstack on one live problem they actually faced, evaluated by whether they act on at least two prescriptions or refer two peers within four weeks. Everything else — more rubrics, more cases, LinkedIn posts, v2 strict-mode upgrades, hosted-version monetization design — is a build-output distraction until that one conversion happens. The structural skepticism the audit surfaces is that 'books-as-evals' is currently a category named only by the founder; until a non-author operator describes their need in that language, the category is founder aesthetic, not market observation."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "cursor-2026",
+  "case_type": "blind",
+  "case_type_note": "This case file intentionally contains NO ground_truth verdict. The rubric scores the analysis on framework application, not against a pre-known answer. Use this case to test whether the analysis demonstrates rigorous Moore-framework reasoning on inputs that have less retrospective public analysis in training data than iconic cases (Slack 2014, Zoom 2018).",
+  "company": {
+    "name": "Cursor (Anysphere)",
+    "description": "AI-powered code editor, originally a fork of VS Code with deep AI integration. Founded 2022 by Anysphere. Position fixed at calendar Q1 2026."
+  },
+  "current_state": {
+    "revenue_arr_usd": "Widely reported ARR in the to range as of late 2025 / early 2026. Exact figure varies by source. ~10x year-over-year growth from 2024.",
+    "customers_count_approx": "Reported 'millions' of users on free tier. Paid users in the high hundreds of thousands. Business-tier customers: growing rapidly into mid-market engineering teams; specific named enterprise logos (Stripe, Shopify, Replicate, Anthropic itself) publicly disclosed.",
+    "customer_profile": "Bottom-up developer adoption: individual engineers at startups, mid-market software companies, scale-ups, and increasingly large tech orgs. Customer base concentrated initially in Bay Area / NYC tech but global usage broad. Buyer at the team-and-up tier is increasingly the engineering manager or VP Engineering, not the IC.",
+    "sales_motion": "Hybrid. Strong product-led growth via free tier and Pro (/user/month). Inside sales motion for Business tier (/user/month). Direct enterprise sales for the largest accounts, but enterprise motion is recent and still maturing. Self-serve credit card up to seat counts in the hundreds; annual contracts and procurement engagement above that.",
+    "industries": ["software", "fintech", "AI/ML", "consumer internet", "developer tools companies"],
+    "geography_primary": "United States primary. Strong international (UK, EU, India, Brazil, Japan); revenue mix not publicly disclosed but adoption patterns suggest growing international share."
+  },
+  "expansion_thesis": "Become the default AI-powered IDE for all software developers, then expand into adjacent surfaces: AI-native code review, AI-assisted refactoring at the codebase level, agent-based background coding workflows, and eventually multi-IDE / multi-language non-code creative work. Public framing: 'the AI code editor for serious software work,' positioning against GitHub Copilot (Microsoft) and Windsurf (Codeium) on quality of agentic capability, model flexibility, and developer experience.",
+  "signals": [
+    "Net dollar retention in the Business tier reported above 130% — strong intra-account expansion as engineering teams standardize.",
+    "The product ships rapid model-routing updates: customers can select frontier models (Claude, GPT, Gemini variants) for different code tasks; defaults shift as new model releases land.",
+    "Free-tier dominance still significant: most signups never convert to paid; Pro tier conversion drives most individual revenue.",
+    "Engineering managers at mid-market software companies are the dominant new buyer profile in the Business tier — not VPs of IT, not procurement.",
+    "SOC 2 Type II achieved. SSO via SAML, basic admin console, audit logs available on Business and Enterprise tiers. SCIM provisioning shipped for Enterprise tier in 2025.",
+    "On-prem / VPC deployment, FedRAMP authorization, and HIPAA-aligned offerings: NOT yet generally available as of Q1 2026. Roadmapped but not shipped.",
+    "Competitive landscape intensifying: GitHub Copilot bundled with GitHub Enterprise, Microsoft pushing Copilot deeply into Visual Studio; Windsurf (Codeium) competing on the same agentic IDE shape; Continue.dev and Cline pursuing open source alternatives.",
+    "Some public concern from large enterprises about code-context-leakage to model providers; Cursor offers privacy modes and contractual data-handling commitments, but bring-your-own-model and on-prem inference requested by F500 buyers and not yet broadly delivered.",
+    "Public messaging emphasizes 'serious software work' and 'production engineering teams,' but the user base is heterogeneous from solo founders building toy apps to large eng orgs.",
+    "Anysphere has raised significant capital at premium valuations through 2025; speculation about IPO or strategic exit timing common in trade press.",
+    "Brand momentum is unusually high: the product has crossed from 'AI dev tool that some engineers love' to 'AI dev tool many engineers default to,' particularly in the AI-forward / startup-builder cohort."
+  ],
+  "notes_for_eval": "This case is constructed from public reporting and trade-press signals as of early 2026. The case is intentionally NOT scored against a ground-truth verdict — there is no privileged answer to check the analysis against. The rubric in rubric.json is the sole scoring authority. A correct analysis should pick a single TALC stage and chasm position decisively, recommend a beachhead at role-level specificity, name concrete whole-product gaps, sequence bowling pins with reference-value rationale, and flag failure modes only where the input evidence supports them. Reasonable analysts may disagree on whether Cursor is 'across the chasm with regulated-industry pins ahead' or 'in the chasm with whole-product gaps blocking F500.' Both positions are defensible if the reasoning is rigorous and tied to the inputs. Disagreement on the conclusion does not penalize an analysis; weak framework application does."
+}

@@ -1,0 +1,43 @@
+{
+  "book": "play-bigger",
+  "case_id": "anthropic-brazil-2026",
+  "case_type": "blind_simulation",
+  "rubric_id": "play-bigger-v0",
+  "analysis_model": "claude-subagent-default",
+  "judge_model": "claude-in-session",
+  "run_mode": "subagent_blind_simulation",
+  "timestamp_iso": "2026-04-30T21:00:00Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.5,
+  "final_score": 1.0,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "key_findings_for_synthesis": {
+    "mission_critical_problem": "Deploying frontier AI inside a Brazilian regulatory perimeter that is hardening faster than the global vendor field is adapting",
+    "pov_summary": "Regulated frontier AI as a discipline where safety research, sovereign compliance attestation, and frontier capability are inseparable",
+    "category_strategy_chosen": "B — Niche subcategory inside existing: 'Regulated Frontier AI' as a Brazil-anchored subcategory of enterprise AI",
+    "category_strategy_paths_rejected": {
+      "A_design_new": "Premature — no local office, no Portuguese thought leadership, no BRL pricing, no LGPD attestation; lightning-strike infrastructure absent",
+      "C_compete_in_existing": "Structurally disadvantaged #3 — Microsoft/OpenAI has Azure enterprise distribution, Google Cloud has Vertex in SP, Portuguese defaults to 'ChatGPT'"
+    },
+    "lightning_strike_readiness_criteria": [
+      "LGPD compliance attestation publicly issued with named external auditor",
+      "Brazilian/LATAM data residency commitment with named GA date",
+      "Anchor tier-1 Brazilian bank reference (1-2 public)",
+      "Local presence: SP enterprise lead + CSE, BRL pricing, Portuguese collateral, Portuguese thought-leadership piece",
+      "Conference/ecosystem footprint: keynote at tier-1 Brazilian conference + named SI partnership"
+    ],
+    "magic_triangle_misalignment": "Product is frontier-capable but not regulated-frontier-packaged; Company is US/UK/EU-organized with zero Brazil presence; Category is 'frontier LLM vendor' / 'ChatGPT alternative' (default/inertia)",
+    "primary_failure_modes_flagged": ["Default category trap", "Better thinking not different thinking", "Vapor POV risk", "Premature lightning strike risk", "Magic triangle misalignment", "#2 by default"]
+  },
+  "item_scores": [
+    { "id": "mission-critical-problem-named", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "WHO named (regulated tier-1 Brazilian banks + AI-forward fintechs at lower tier). Current framing identified ('AI strategy', 'GenAI vendor selection', 'ChatGPT for enterprise'). Why existing framing wrong: 'real mission-critical problem is deploying frontier AI inside a Brazilian regulatory perimeter that is hardening faster than the global vendor field is adapting' — distinguishes from 'pick a foundation model vendor' framing." },
+    { "id": "pov-three-parts", "raw_score": 1.0, "weight": 1.5, "weighted_score": 1.5, "reasoning": "All 3 parts present and specific. Problem: Brazilian regulated enterprises need frontier AI under tightening Brazilian compliance regime (LGPD, ANPD, public procurement). Why existing solutions structurally fail: OpenAI/Microsoft and Google built narrative/contracts/trust posture for US/EU compliance regimes; Brazilian SIs (Stefanini/TOTVS/CI&T) have local fluency but don't build frontier models. New way of thinking: 'Regulated frontier AI' as a discipline where safety research + sovereign compliance + frontier capability are inseparable. POV is uncomfortable for capability-first vendors AND platform-first vendors AND integrator-only positioning." },
+    { "id": "magic-triangle-alignment-diagnosed", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "All 3 legs diagnosed with cited evidence. Product: frontier Claude family available via API + Bedrock, gaps named (no BRL pricing, no LGPD attestation, no announced residency, limited Portuguese polish). Company: globally multi-billion ARR for US/UK/EU; Brazil-specific zero (no SP office, no Brazil sales team, no Portuguese collateral, no announced hires, minimal conference presence). Category: 'frontier LLM vendor' or 'ChatGPT alternative' (inertia category). Diagnosis: misaligned on two of three axes." },
+    { "id": "category-strategy-with-rigorous-reasoning", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Picks B (niche subcategory 'Regulated Frontier AI') with engagement on all 4 framework conditions: team capacity (no local office, no Portuguese thought leadership), competitive dynamics (Microsoft/Google king-crowning tilted in generic LLM category), product readiness (frontier-capable but not regulated-frontier-packaged), funding/patience (requires committed Brazil investment). Rejected paths reasoned: A is premature (lightning-strike infrastructure absent globally + locally), C is structurally disadvantaged #3 with high cost and low expected share." },
+    { "id": "lightning-strike-sequencing", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "5 specific readiness criteria with strike-day sequencing: LGPD attestation publicly issued with named external auditor; Brazilian/LATAM data residency commitment with named GA date; anchor Brazilian customer reference (1-2 tier-1 banks public); local presence (SP enterprise lead + CSE hired, BRL pricing live, Portuguese sales collateral, Portuguese thought-leadership piece by Anthropic technical leader); conference/ecosystem footprint (keynote at tier-1 Brazilian enterprise/AI conference, named Brazilian SI/consultancy partnership). Sequence: items 1+2+3 same day; office/hires/pricing same window; conference keynote within 90 days. Explicit warning that firing before 1-3 produces vapor POV." },
+    { "id": "failure-modes-flagged-with-evidence", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "All 6 Play Bigger failure modes flagged with cited input evidence: default category trap (Portuguese mentions of LLMs default to 'ChatGPT'); better-not-different thinking (safety/frontier capability messaging primarily English, oriented to US/UK/EU — improvement-within-category framing not new-category framing); vapor POV risk (LGPD/residency/BRL/Portuguese all absent per inputs); premature lightning strike risk (no announced SP office, no Portuguese thought leadership, minimally present at major conferences); magic triangle misalignment (cited); #2 by default (AWS Bedrock as sole distribution path risks Anthropic permanently positioned as a model option inside someone else's platform category)." },
+    { "id": "confidence-and-open-questions-calibrated", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "POV 6/10 (calibrated lower with honest self-critique: 'not yet uncomfortable enough to clearly exclude OpenAI's enterprise narrative — both could plausibly claim the term without specificity around safety-research provenance and sovereign attestation'). Category strategy 6/10 (contingent on Anthropic's willingness to fund local presence). 3 specific open questions with quantitative trigger thresholds: procurement-gate weight at tier-1 Brazilian bank (>30% makes subcategory real, <10% makes it irrelevant), OpenAI/Google's actual LGPD/residency posture (binary trigger collapsing or opening 12-18-month window), Anthropic's committed Brazil headcount/budget (threshold below which neither A/B/C works and the right answer is 'harvest AWS Bedrock demand passively')." },
+    { "id": "category-king-economics-engaged", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Engages category-king economics specific to this case, not generic restatement. 'Fighting for #1 in a category where the king-crowning dynamics favor an incumbent is the worst position — high cost, low expected share.' Reasons subcategory choice via king-economics: 'lets Anthropic be #1 in a defined slice rather than #3 in the generic slice.' Notes meta-prize: 'Winning this subcategory in Brazil also creates the template for LATAM and other sovereignty-sensitive markets.' Application is case-specific, not framework recital." }
+  ]
+}

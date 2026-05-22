@@ -1,0 +1,33 @@
+{
+  "id": "stripe-2011",
+  "case_type": "blind",
+  "case_type_note": "This case file intentionally contains NO ground_truth verdict. The rubric scores the analysis on framework application, not against a pre-known answer. Stripe 2011 is a productive misfit case for Predictable Revenue: Ross's framework prescribes outbound, but Stripe in 2011 should NOT do outbound. A strong analysis applies the framework to recognize when its prescriptions don't yet fit. This case tests whether the analyst can decline the framework's prescription with rigor when the conditions warrant.",
+  "company": {
+    "name": "Stripe",
+    "description": "Online payments API for developers. Founded 2010 by Patrick and John Collison (YC W09 alumni). Public launch September 2011. Position fixed at Q4 2011, three months after launch."
+  },
+  "current_state": {
+    "revenue_arr_usd": "Not publicly disclosed. Estimated low-single-digit millions in processed volume per month at the time of public launch, growing rapidly.",
+    "customers_count_approx": "A few hundred to low thousands of customers. Heavy concentration in YC-network-adjacent startups, San Francisco tech community, and early-stage developer-led consumer products.",
+    "customer_profile": "Software developers integrating payments into early-stage online products and consumer apps. The buyer is the technical founder, the lead engineer, or the developer adding payments to a side project. Self-identified by signing up, dropping in 7 lines of code, and processing a first transaction.",
+    "sales_motion": "Pure self-serve. No sales team. Sign up via website, integrate the API, swipe a credit card on first transactions. No contracts, no enterprise procurement, no sales rep. Price: 2.9% + $0.30 per transaction, posted publicly.",
+    "industries": ["software (consumer products)", "early-stage startups", "developer tools", "online services"],
+    "geography_primary": "United States, heavily concentrated in San Francisco Bay Area. Some international developer adoption beginning."
+  },
+  "expansion_thesis": "Become the default payments infrastructure for online businesses. Compete on developer experience and integration speed against incumbent payment processors (PayPal, Authorize.net, Braintree pre-acquisition) which require multi-week integration projects, sales calls, account setups, and contracts. Public framing: '7 lines of code' to accept payments — a deliberate contrast against the incumbents' multi-page contracts and weeks-long integration cycles.",
+  "signals": [
+    "Founders Patrick and John Collison are YC W09 alumni; Stripe was a YC company itself; customer base is heavily YC-network-adjacent.",
+    "Funding raised: Sequoia, Peter Thiel, Andreessen Horowitz, Elad Gil, others — substantial seed/Series A funding for an unusually small team.",
+    "No outbound sales motion. No SDRs. No AEs. No marketing email campaigns. Customer acquisition is via blog posts, hacker news, word-of-mouth among developers, and YC-network referrals.",
+    "Founders are personally responding to support tickets and helping developers debug API integrations. Patrick has been seen on Hacker News answering questions about Stripe directly.",
+    "Pricing is public, transactional, and uniform: 2.9% + $0.30 per successful charge. No volume discounts negotiated by sales team. No contracts.",
+    "Product is differentiated on developer experience, not on enterprise capabilities. The differentiation is felt within the first 10 minutes of integration; the buyer experiences the value before paying anything.",
+    "No reference customers in regulated verticals (banking, healthcare with HIPAA payments, government).",
+    "The implicit buyer is the same as the user: a developer who is also the technical founder or lead engineer. There is no procurement function, no IT review, no security questionnaire.",
+    "Hiring posture: small team, primarily engineers. No GTM hires (no head of sales, no VP marketing, no SDRs) yet.",
+    "Customers are starting to expand: Lyft (early), Reddit, GitHub (emerging), and other YC-network consumer/SaaS products are integrating Stripe and processing meaningful volume.",
+    "Visible competitive pressure from Braintree (pre-PayPal acquisition), which has a similar developer-focused positioning but more enterprise-oriented sales motion.",
+    "No clear ICP definition has been articulated publicly — the customer base is whoever signs up. Founders describe customers as 'developers building online businesses' without further firmographic narrowing."
+  ],
+  "notes_for_eval": "Stripe 2011 is intentionally a productive misfit for Predictable Revenue. A correct analysis should apply Ross's framework to recognize that Stripe should NOT yet build outbound (Cold Calling 2.0 / Spears) — the conditions for outbound are absent: PLG is producing the right buyers cheaply, ICP is not yet tight enough for specific subject lines, Seeds (YC referrals + word-of-mouth) and Nets (technical content + Hacker News) are still scaling, and ACV per transaction is too low to support outbound economics until volume per customer grows. A weak analysis will mechanically prescribe outbound because the framework's headline prescription is outbound. The rubric is designed to score 'decline outbound with rigorous rationale tied to the book's conditions' as a path to credit equal to 'prescribe outbound with specifics.' The eval value is whether the analyst reads the inputs and applies the framework correctly — including knowing when its prescriptions don't yet apply."
+}

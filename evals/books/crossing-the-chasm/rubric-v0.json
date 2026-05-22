@@ -1,0 +1,123 @@
+{
+  "rubric_id": "crossing-the-chasm-v0",
+  "framework_source": "framework.md",
+  "scoring_model": "binary_with_partial",
+  "scoring_doc": "Each item scored 0 / 0.5 / 1. Item score multiplied by item weight. Final score = sum(item_score * weight) / sum(weight). Pass threshold = 0.75. Items must be observable from the model's output text alone (LLM judge applies them).",
+  "judge_instructions": "You are a strict but fair judge applying this rubric to a model's analysis. For each item: (1) read the test, (2) inspect the named output section, (3) score 1.0 if all conditions met, 0.5 if partially met, 0 if not met. The 'critical_application' mode means: a model that critically engages with Moore's framework on contested claims (e.g., notes that bottom-up product-led growth changes chasm dynamics) should NOT be penalized as long as the framework's core mechanics are applied rigorously. Score the application, not the agreement.",
+  "mode": "critical_application",
+
+  "items": [
+    {
+      "id": "talc-stage-decisive",
+      "weight": 1.0,
+      "section": "TALC Stage",
+      "test": "Output names exactly one TALC stage from {Innovators, Early Adopters, Early Majority, Late Majority, Laggards} AND cites at least one specific signal from the input (customer profile, sales motion, buying motivation, or specific quote) as supporting evidence.",
+      "fail_modes": [
+        "Hedges across multiple stages ('between Early Adopters and Early Majority')",
+        "Names a stage with no input evidence cited",
+        "Refuses to pick a stage citing 'insufficient data' when input contains buyer-profile signals"
+      ],
+      "partial_credit": "Score 0.5 if a single stage is named but evidence is weak (handwaves at 'the company is growing') or if evidence is cited but the stage choice is poorly aligned with the cited evidence."
+    },
+    {
+      "id": "chasm-position-on-buying-motivation",
+      "weight": 1.0,
+      "section": "Chasm Position",
+      "test": "Output picks exactly one chasm position from {before the chasm, approaching the chasm, in the chasm, across the chasm} AND the reasoning explicitly references the buying motivations of current customers (visionary vs. pragmatist, or product-led/bottom-up vs. enterprise-procurement) — NOT just revenue/customer count/growth rate.",
+      "fail_modes": [
+        "Justifies chasm position by citing growth alone ('revenue is up, so they're crossing')",
+        "Hedges across multiple positions",
+        "Confuses 'more visionaries adopting' with 'crossing into early majority' (this is the central Moore trap)"
+      ],
+      "partial_credit": "Score 0.5 if position is picked decisively but the buying-motivation reasoning is weak (mentions buyer types in passing without using them as the basis for the call)."
+    },
+    {
+      "id": "beachhead-role-level-specificity",
+      "weight": 1.0,
+      "section": "Beachhead Recommendation",
+      "test": "If the output recommends a beachhead (required when company is before/in chasm), the segment is specified at role-level: a named buyer title or buyer role within a named industry/size band. Category-level segments ('SMBs', 'tech companies', 'enterprises', 'developers') do NOT pass. If the company is across the chasm, the test is whether the output names the historical beachhead with the same specificity.",
+      "fail_modes": [
+        "Category-only segment ('mid-market SaaS')",
+        "Lists multiple beachheads in parallel — Moore's central rule is ONE beachhead",
+        "Specifies segment by industry without naming a buyer role or buying authority"
+      ],
+      "partial_credit": "Score 0.5 if buyer role is named but industry/size context is missing, or vice versa."
+    },
+    {
+      "id": "whole-product-gap-concrete-named-items",
+      "weight": 1.5,
+      "section": "Whole Product Gap",
+      "test": "Output lists at least 3 concrete items the beachhead segment would refuse to buy without. 'Concrete' means: (a) integration with a named tool or standard (Okta SAML, SCIM, Salesforce, Slack), or (b) a named certification (FedRAMP, SOC 2 Type II, ISO 27001, HIPAA), or (c) a specific feature class with name (audit log, role-based access control, data residency), or (d) a named reference customer type ('Fortune 500 manufacturers').",
+      "fail_modes": [
+        "Generic items only ('better integrations', 'more references', 'stronger enterprise features', 'enterprise-ready')",
+        "Fewer than 3 concrete items",
+        "Items are aspirational rather than gap-named ('build trust' vs. 'ship SOC 2 Type II')"
+      ],
+      "partial_credit": "Score 0.5 if 1-2 items are concrete and the rest are generic; score 0.5 if 3+ items are listed but only 1 is genuinely named (e.g., one 'Okta SSO' surrounded by 'better admin tools', 'more references').",
+      "discrimination_note": "This is the 1.5x-weighted item. Generic AI output ALWAYS hits this with 'better integrations.' A model that names Okta, SCIM, FedRAMP demonstrates real framework application. The score gap on this item is the single biggest signal of GTM reasoning quality."
+    },
+    {
+      "id": "bowling-pin-falling-rationale",
+      "weight": 0.5,
+      "section": "Bowling Pin Sequence",
+      "test": "Output lists at least 2 next-segments AND for each segment provides a one-line rationale that explicitly connects to the previous segment's reference value, shared whole-product needs, or cultural adjacency. Rationale must connect segments — not just list them.",
+      "fail_modes": [
+        "Lists segments with no rationale ('then media, then enterprise')",
+        "Rationale is 'this is a big market' (TAM, not falling-rationale)",
+        "Segments are not adjacent in any meaningful sense"
+      ],
+      "partial_credit": "Score 0.5 if 2 segments listed with rationale but only one segment's rationale is causal (the other is filler)."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "weight": 1.0,
+      "section": "Failure Modes Flagged",
+      "test": "For each Moore failure mode whose evidence is clearly present in the input, the output flags it AND cites or quotes the specific input signal. False positives (flagging a mode whose evidence is weak) do not penalize. False negatives on clear-evidence modes do.",
+      "fail_modes": [
+        "Misses parallel pursuit when expansion thesis explicitly says 'all customers' or 'all sizes'",
+        "Misses whole product blindness when input lists missing critical infrastructure (SSO/admin/compliance)",
+        "Misses confused TALC stage when founders publicly claim early-majority readiness while customers are visionaries",
+        "Flags failure modes with no input evidence cited (still scores 0 — must cite)"
+      ],
+      "partial_credit": "Score 0.5 if at least one major failure mode (the one with strongest input evidence) is flagged with evidence, but other clearly-evidenced modes are missed."
+    },
+    {
+      "id": "visionary-growth-vs-crossing-distinction",
+      "weight": 1.0,
+      "section": "Chasm Position OR Failure Modes Flagged OR TALC Stage",
+      "test": "If the input shows revenue/customer growth among visionary buyers (early adopters), the output explicitly distinguishes whether that growth represents 'continued penetration of the visionary segment' OR 'crossing into early majority.' The distinction must be explicit in the prose — not implied. Inputs that show NO growth signal can score this 1.0 by default (N/A).",
+      "fail_modes": [
+        "Treats growth as evidence of crossing without examining buyer profile of growth cohort",
+        "Implies the distinction without making it explicit",
+        "Misses entirely when input clearly shows growth among visionaries"
+      ],
+      "partial_credit": "Score 0.5 if the distinction is gestured at ('the growth is mostly from technical buyers') but not explicitly framed as 'visionary penetration vs. crossing.'"
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "weight": 0.5,
+      "section": "Confidence and Open Questions",
+      "test": "Output states integer confidence (1-10) for both TALC stage AND chasm position AND lists at least 2 specific facts that, if known, would change the analysis. 'Specific' means a named metric, ratio, or attribute (e.g., 'paid-tier revenue % of total', 'cohort retention past 50 members') — NOT generic ('more customer data', 'more research', 'understanding their pipeline').",
+      "fail_modes": [
+        "No confidence stated",
+        "Confidence stated for only one of the two calls",
+        "Open questions are generic ('more market research', 'better data')",
+        "Fewer than 2 open questions"
+      ],
+      "partial_credit": "Score 0.5 if confidence stated for both but only 1 specific open question, OR confidence stated for one call only with 2+ specific open questions."
+    }
+  ],
+
+  "validation": {
+    "ground_truth_expected_score_min": 0.95,
+    "ground_truth_note": "Applied to slack-2014 ground_truth verdict, this rubric should score ≥ 0.95. If it scores lower, the rubric is mis-calibrated against what the framework considers good analysis.",
+    "discrimination_targets": {
+      "strong_analysis": "≥ 0.90",
+      "decent_analysis": "0.70 - 0.85",
+      "mediocre_analysis": "0.30 - 0.55",
+      "weak_analysis": "< 0.30"
+    },
+    "pass_threshold": 0.75,
+    "pass_threshold_rationale": "Set at 0.75 because (1) decent analyses landed around 0.77 in calibration, putting the threshold inside the discriminating zone, (2) strong analyses cleanly clear it, (3) mediocre/weak analyses cleanly fail. Adjust if real runs show clustering at the boundary."
+  }
+}

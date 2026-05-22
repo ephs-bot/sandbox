@@ -1,0 +1,84 @@
+{
+  "id": "zoom-2018",
+  "company": {
+    "name": "Zoom Video Communications",
+    "description": "Cloud video meetings platform, founded 2011 by Eric Yuan (former VP Engineering at Cisco WebEx). Position fixed at calendar fiscal year ending January 2019 (referred to here as 'Zoom 2018'), pre-IPO, S-1 filed March 2019."
+  },
+  "current_state": {
+    "revenue_arr_usd": "approximately ARR; 2x year-over-year growth from prior year",
+    "customers_count_approx": "50,800 customers with more than 10 employees; 1,700+ customers with more than 1,000 employees",
+    "customer_profile": "Heterogeneous: education institutions (Stanford, UMich, etc., adopted 2013-2015), SMB knowledge workers, mid-market sales and customer success teams, enterprise commercial accounts. Mix of bottom-up viral adoption and top-down direct sales.",
+    "sales_motion": "Hybrid. Free tier with 40-minute group call cap drives bottom-up team adoption. Inside sales for SMB and mid-market. Direct field sales for enterprise. Self-serve credit card up-tier; enterprise contracts via AE.",
+    "industries": ["education", "technology", "professional services", "financial services (early)", "healthcare (early, HIPAA-eligible)"],
+    "geography_primary": "United States primary; international growing. ~80% revenue US in FY2019."
+  },
+  "expansion_thesis": "Become the communications platform of record for the modern workplace. Beyond meetings: Zoom Phone (cloud PBX, announced 2018, GA early 2019) extending into voice; Zoom Rooms (conference room hardware/software) extending into physical spaces; webinar (Zoom Webinar) extending into one-to-many. Goal: own real-time communication across formats — meetings, voice, rooms, webinars — for the same customer.",
+  "signals": [
+    "Net dollar retention 138% — customers expand significantly within account.",
+    "Profitable: 2018 — rare for SaaS at this scale and growth rate.",
+    "NPS reportedly above 70 — extremely high for B2B; user-driven adoption pattern continues.",
+    "Stanford was an early signature reference (2013). University adoption preceded enterprise penetration.",
+    "Whole product breadth: SOC 2 Type II, HIPAA-eligible, SSO/SAML, Outlook calendar integration, recording, transcription, large-format webinars, mobile parity.",
+    "FedRAMP authorization in progress (not yet attained). Government segment partially blocked.",
+    "Eric Yuan publicly emphasizes 'we make customers happy' — culture and product friction reduction.",
+    "Competitive landscape: WebEx (incumbent, declining), GoToMeeting (legacy), Skype for Business (declining, Microsoft transitioning to Teams), Google Hangouts/Meet (free but feature-thin), BlueJeans, Lifesize.",
+    "Microsoft Teams launched 2017, bundled into Office 365 — emerging competitive pressure on the bundled-software angle.",
+    "Zoom Phone announcement positions Zoom as a comms-suite contender (vs. RingCentral, 8x8 in cloud PBX)."
+  ],
+  "ground_truth": {
+    "talc_stage": "Early Majority",
+    "talc_stage_evidence": "50,800 customers with >10 employees including 1,700+ with >1,000 employees indicates the company has scaled well past visionary buyers into the pragmatist majority. NDR of 138% confirms whole-product completeness for the segments they're in. Profitability at this scale also signals pragmatist-segment economics. The Late Majority (conservatives in regulated industries, slow-moving F500 with deep WebEx contracts) is the next wave but not yet the dominant cohort — FedRAMP not yet attained, regulated-vertical penetration still emerging.",
+    "chasm_position": "Across the chasm",
+    "chasm_position_evidence": "The whole product (SOC 2, HIPAA-eligible, SSO, calendar integration, mobile parity, recording, large meeting / webinar formats, hardware Rooms integrations) is in place for pragmatist buyers and they are buying. Reference customers exist at meaningful scale across multiple segments. Buyers in mid-market and enterprise are evaluating Zoom against established competitors (WebEx, Skype for Business) on standard pragmatist criteria — feature parity, security certifications, support SLAs — not on visionary 'this is better technology' grounds. The company is past the chasm and is now in the rolling-forward phase, picking the next bowling-pin segment.",
+    "correct_beachhead": "Original beachhead (2013-2015) was tech-forward higher education institutions (Stanford, then peer universities). Specifically: IT decision-makers at research universities with distributed faculty/students who needed reliable, low-friction video — and where word-of-mouth between faculty and across institutions had outsized reference value.",
+    "beachhead_rationale": "Education was correctly chosen because (a) the buyer was a single named role (university IT lead) with a real budget, (b) the segment had strong horizontal reference value — faculty took Zoom into their commercial advisory roles, and students became Zoom evangelists in their first jobs, (c) the whole product was achievable: a working call without plugins or training, (d) the product's friction-free architecture (no install for participants, just a click-to-join link) was a felt-pain solution for distributed academic users specifically. The bowling pin sequence from there to SMB tech to mid-market sales teams worked because each segment recognized the previous segment's reference base.",
+    "whole_product_gap": [
+      "FedRAMP authorization — required for federal government segment; in progress 2018, attained later. This is the single largest unblocking gap for the next wave.",
+      "Industry-specific compliance posture: HITRUST for deeper healthcare, FINRA-aware archival for financial services, ITAR for defense.",
+      "Native call recording compliance dashboarding for regulated retention requirements (legal hold, eDiscovery export, configurable retention by jurisdiction).",
+      "Deeper integration with Microsoft 365 (calendar, Teams interop) — competitive pressure point as Teams bundles into existing Office customer footprint.",
+      "Zoom Phone scale (announced 2018, GA early 2019) — execution risk: the comms-suite expansion thesis depends on Phone reaching parity with RingCentral and 8x8 in cloud PBX features within a year.",
+      "Reference customers in regulated F500 (top-10 banks, healthcare systems with HIPAA migration evidence, federal agencies post-FedRAMP) — needed to convince late-majority conservatives.",
+      "Channel partner program for international expansion — direct sales doesn't scale outside US; need EMEA and APAC partner programs."
+    ],
+    "bowling_pin_sequence": [
+      {
+        "segment": "Regulated industries with HIPAA / SOC 2 minimum bar (healthcare delivery networks, mid-tier financial services)",
+        "rationale": "Already have most of the whole product needed; references from current healthcare customers carry into the broader segment; pragmatist buyers in these verticals follow each other into platform decisions."
+      },
+      {
+        "segment": "Federal government and government contractors (post-FedRAMP)",
+        "rationale": "FedRAMP is the bottleneck; once attained, the existing whole product (security, scale, recording compliance) lets this segment fall to current SLG/state references. Bowling pin sequence from healthcare / financial services into government is standard."
+      },
+      {
+        "segment": "Late-majority Fortune 500 with WebEx contract renewals 2019-2021",
+        "rationale": "These customers are conservative — they buy when their incumbent contract ends and the alternative has matched feature/security parity AND has reference customers in their industry. The previous two pins (regulated industries + government) provide the reference base; the contract-renewal cycle provides the timing."
+      },
+      {
+        "segment": "Comms suite expansion within existing customer base — Zoom Phone, Zoom Rooms, Zoom Webinar",
+        "rationale": "This is category expansion within the same pragmatist buyer (IT decision-maker at customer accounts). Extending whole product into voice + rooms + webinar consolidates spend and locks in the customer against future competitive bundling pressure (specifically Microsoft Teams + Office bundle)."
+      }
+    ],
+    "failure_modes_flagged": [
+      {
+        "mode": "Confused TALC stage (potential, low evidence)",
+        "evidence": "Heterogeneous customer base could mask which segment is actually dominant. If free-tier users skew earlier in the curve while paid enterprise customers represent the late majority, the company-wide TALC framing might over-state stage. The 138% NDR and 1,700+ enterprise customers argue against this being a real risk in 2018, but it would become one if free-tier signups disproportionately drive the growth narrative."
+      },
+      {
+        "mode": "Whole product blindness (forward-looking)",
+        "evidence": "The expansion into Phone, Rooms, and Webinar simultaneously is broad. Each new product line has its own whole-product gap (Phone needs SIP trunking partners, number porting, e911; Rooms needs hardware certifications and partnerships). The 'all knowledge workers' framing of the comms-suite vision could surface parallel-pursuit risk if execution doesn't focus on Phone first as the wedge into the suite."
+      }
+    ],
+    "confidence": {
+      "talc_stage": 8,
+      "chasm_position": 9
+    },
+    "open_questions": [
+      "What percentage of Fortune 1000 has standardized on Zoom vs. WebEx/Skype as of FY2019? Distinguishes 'entering Late Majority' from 'well into Early Majority.'",
+      "Net retention by segment — does the 138% headline number hold in enterprise specifically, or is it driven by SMB/mid-market expansion? Tells whether the late-majority crossing is happening or whether enterprise is leveling off.",
+      "FedRAMP timing — when does it land? Determines unlock timing for the government bowling pin.",
+      "Zoom Phone customer count and ARR contribution at GA — tests whether the comms-suite expansion is real product-market fit or thesis-stage."
+    ]
+  },
+  "notes_for_eval": "Zoom's actual subsequent trajectory (FedRAMP 2019, COVID acceleration 2020 with 10x customer growth, healthcare HIPAA expansion, $4B+ ARR by FY2022) confirms the 2018 'across the chasm with regulated-industry bowling pins ahead' assessment. The COVID acceleration is an exogenous shock unrelated to the framework — a correct 2018 analysis should not have predicted it. A correct analysis SHOULD have predicted the FedRAMP-then-government sequence, the comms-suite expansion via Phone, and the Microsoft Teams competitive pressure becoming the dominant strategic question. Both Slack 2014 and Zoom 2018 cases are constructed to be solvable from the inputs alone — no future hindsight required."
+}

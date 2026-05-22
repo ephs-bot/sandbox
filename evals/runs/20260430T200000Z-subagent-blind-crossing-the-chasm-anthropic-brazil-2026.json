@@ -1,0 +1,34 @@
+{
+  "book": "crossing-the-chasm",
+  "case_id": "anthropic-brazil-2026",
+  "case_type": "blind_simulation",
+  "rubric_id": "crossing-the-chasm-v0",
+  "analysis_model": "claude-subagent-default",
+  "judge_model": "claude-in-session",
+  "run_mode": "subagent_blind_simulation",
+  "run_mode_note": "Live simulation: gtmstack applied to Anthropic's 2026 Brazil expansion. Subagent had no conversational context; given only framework + prompt + case inputs (no ground_truth, no privileged information). Output is a real, fresh analysis of a contested live GTM question.",
+  "timestamp_iso": "2026-04-30T20:00:00Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.5,
+  "final_score": 1.0,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "key_findings_for_synthesis": {
+    "talc_stage": "Early Adopters (in Brazilian market)",
+    "chasm_position": "In the chasm",
+    "beachhead": "Heads of AI / Heads of Engineering at Brazilian digital-native fintechs (Nubank, Stone, PagSeguro, Inter, XP, BTG Pactual), revenue $500M-$5B, São Paulo HQ",
+    "primary_failure_modes": ["Whole product blindness", "Parallel pursuit (latent)", "Confused TALC stage"],
+    "next_pin_after_beachhead": "Incumbent Brazilian retail banks (Itaú, Bradesco, Santander Brasil) — same whole product, fintech references unlock conservative procurement",
+    "explicit_deferral": "Public-sector and SOEs (Petrobras, Caixa, BNDES) require separate whole product"
+  },
+  "item_scores": [
+    { "id": "talc-stage-decisive", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Early Adopters (visionaries) in the Brazilian market' — single stage, market-specific framing. Multi-evidence: technical-founder-led startups, innovation-lab pilots, no standardization, no pragmatist infrastructure (LGPD, BRL, Portuguese, local office). Adoption inbound and developer-led." },
+    { "id": "chasm-position-on-buying-motivation", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'In the chasm' decisive. Reasoning explicitly contrasts visionary buying motivations (tolerate USD, English, no local presence for capability) against pragmatist motivations (LGPD compliance, Portuguese documentation, BRL contracting, local provider preference). Cites multi-vendor pilots without standardization at named banks as the textbook chasm signal." },
+    { "id": "beachhead-role-level-specificity", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Heads of AI / Heads of Engineering at Brazilian digital-native fintechs (Nubank, Stone, PagSeguro, Inter, XP, BTG Pactual), revenue band $500M-$5B, São Paulo HQ.' Role + named industry + size band + geography + named example logos. Single beachhead." },
+    { "id": "whole-product-gap-concrete-named-items", "raw_score": 1.0, "weight": 1.5, "weighted_score": 1.5, "reasoning": "9 concrete items: LGPD compliance attestation with publishable DPA template, Brazilian data residency guarantee, BRL-denominated invoicing, pt-BR system prompt tuning + Portuguese trust center, local solutions engineering + customer success in São Paulo timezone with banking-domain familiarity, fintech-specific reference architectures (PIX/Open Finance), TOTVS and CI&T integration partnerships, Febraban Tech presence with named Brazilian banking customer on stage, forward-looking ANPD AI-governance posture." },
+    { "id": "bowling-pin-falling-rationale", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "3 pins with explicit reference-value chaining: (1) digital fintechs (beachhead), (2) incumbent retail banks (Nubank/Stone references unlock conservative procurement, shared SI partner CI&T/Stefanini carries deal in), (3) Brazilian retailers and telcos (reuses customer-service copilot + PIX/Open Finance integrations, inherits LGPD/BRL/Portuguese stack). Plus explicit deferral of public-sector/SOEs with whole-product reasoning." },
+    { "id": "failure-modes-flagged-with-evidence", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "3 strong-evidence modes flagged with citations: whole product blindness (multi-vendor pilots without standardization as textbook signal), parallel pursuit latent (cites expansion thesis: 'named banks, retailers, telcos plus public-sector ambitions plus broader LATAM plus Lusophone Africa'), confused TALC stage (cites 'enterprise-grade reliability' messaging oriented to US/UK/EU vs. visionary Brazilian customer reality). Plus 'modes NOT flagged' explicit reasoning for wrong-beachhead and skipping-bowling-pin." },
+    { "id": "visionary-growth-vs-crossing-distinction", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Dedicated section. 'Brazilian growth to date is continued visionary penetration, not crossing.' Names specific channels extending visionary reach (API self-serve, Bedrock pass-through, free/Pro subscribers, developer word-of-mouth). Names what crossing would require (LGPD, BRL, Portuguese trust center, local CS, flagship banking logo standardized). Names consequence: 'saturate inside visionary tier; bank pilots stall or consolidate on competitor.'" },
+    { "id": "confidence-and-open-questions-calibrated", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "TALC 8/10, Chasm 7/10 — both integers. Chasm calibrated lower with rationale ('turns on whether named-bank pilots are stalling or progressing'). 3 named-metric open questions with quantitative trigger thresholds: pilot-to-production conversion rate at 4 named banks, Brazil ARR concentration in top-3 customers (>60% threshold), AWS Bedrock contracts already satisfying LGPD/data residency without Anthropic-direct paperwork." }
+  ]
+}

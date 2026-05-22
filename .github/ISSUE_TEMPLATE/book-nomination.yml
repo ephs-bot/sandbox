@@ -1,0 +1,91 @@
+name: Nominate a book
+description: Suggest the next GTM/strategy book to encode as a gtmstack eval.
+title: "[book] <Book title> — <Author>"
+labels: ["book-nomination"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for nominating a book. The next book to get encoded as a
+        gtmstack eval gets picked by readers, not by me. Read
+        [CANDIDATE_BOOKS.md](../blob/main/evals/CANDIDATE_BOOKS.md)
+        for the existing seed list and the picking criteria.
+
+        One book per issue. Use 👍 reactions on existing issues to
+        upvote them — I tally reactions + comment depth, not just
+        comment count.
+
+  - type: input
+    id: title
+    attributes:
+      label: Book title
+      placeholder: e.g., SPIN Selling
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Author(s)
+      placeholder: e.g., Neil Rackham
+    validations:
+      required: true
+
+  - type: dropdown
+    id: axis
+    attributes:
+      label: Which GTM axis does this book strengthen?
+      description: Pick the axis the book most belongs to. If it spans multiple, pick the dominant one.
+      options:
+        - Where to play (segmentation, beachhead, adoption stage)
+        - What category (category design, monopoly thinking)
+        - How to position (messaging, narrative, copy)
+        - How to sell (discovery, closing, channels, ops)
+        - Whether demand is real (customer discovery, validation)
+        - Expansion / retention (land-and-expand, churn, CS)
+        - Something else (explain below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this book?
+      description: |
+        What does this book add that the current 5 don't? Be specific.
+        "It's a classic" is weaker than "it'd give the rubric a way to
+        diagnose <X>, which Predictable Revenue misses because <Y>."
+      placeholder: e.g., "Predictable Revenue covers role design but doesn't cover what happens inside a single discovery call. SPIN's Situation/Problem/Implication/Need-payoff structure would let the rubric diagnose discovery-call quality directly, which matters for high-ACV enterprise sales."
+    validations:
+      required: true
+
+  - type: textarea
+    id: framework
+    attributes:
+      label: What's the codifiable framework?
+      description: |
+        Name the framework or model the book is known for. If the book
+        is mostly narrative without a named structure, say so —
+        narrative-heavy books are harder to encode but not impossible.
+      placeholder: e.g., "SPIN questioning sequence + the 4-stage call structure (opening / investigating / demonstrating capability / obtaining commitment)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: company_to_test
+    attributes:
+      label: A company you'd want to see analyzed through this book
+      description: |
+        Optional. The case that would prove the book's lens is useful.
+        Brazilian startups especially welcome.
+      placeholder: e.g., "Nubank's enterprise-onboarding motion for institutional clients."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Agreement
+      options:
+        - label: I understand this is a public vote and my nomination may be cited.
+          required: true

@@ -1,0 +1,89 @@
+{
+  "run_id": "20260512T100000Z-blind-historical-play-bigger-vercel-2021",
+  "timestamp": "2026-05-12T10:00:00Z",
+  "book": "play-bigger",
+  "case_id": "vercel-2021",
+  "case_type": "blind_historical",
+  "case_type_note": "Time-machine calibration. Public-info-as-of-Q4-2021 only. notes_for_eval ignored during analysis step.",
+  "rubric_id": "play-bigger-v1",
+  "analysis_md_path": "evals/runs/20260512T100000Z-blind-historical-play-bigger-vercel-2021-analysis.md",
+  "picked_strategy": "B",
+  "picked_strategy_name": "Niche subcategory: Frontend Cloud",
+  "lightning_strike_timing": "Defer 12-18 months (target 2H 2022 or 2023) until SOC 2 Type II + SCIM + audit logs + data residency shipped AND 3+ Fortune-500 standardization references publicly nameable",
+  "rubric_scores": [
+    {
+      "id": "mission-critical-problem-named",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Names WHO (engineering-led teams, indie devs, tech-forward startups, bottom-up pods inside larger orgs with named examples TikTok/Notion/WaPo/Square), names current framing in market ('hosting,' 'PaaS,' 'Jamstack hosting,' 'static site host,' 'edge CDN'), and names why existing framing is structurally wrong (PaaS organized around 12-factor; CDN-as-host organized around static + bolt-on functions; neither built around React/Next.js execution model). Section delivers all three levels with quoted current-framing language and a distinguishing claim."
+    },
+    {
+      "id": "pov-three-parts",
+      "weight": 1.5,
+      "score": 1.0,
+      "reasoning": "All three parts present and specific. (1) Problem: deployment-layer decoupled from framework-capability gap. (2) Structural failure named for three named competitor categories with specific architectural reasons (PaaS = 12-factor generic app, CDN-as-host = static + functions bolt-on, hyperscaler = infra primitives not framework primitives). (3) New way of thinking: framework-coupled execution platform vs. commodity deployment target. No 'better than X' framing; each competitor's failure tied to founding-constraint difference. Non-interchangeable with Netlify or Cloudflare POV — explicitly contrasts."
+    },
+    {
+      "id": "magic-triangle-alignment-diagnosed",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "All three legs diagnosed with cited evidence: Product (narrow-and-deep frontend, no DB/KV/queues, edge network, Edge Functions Oct 2021); Company (~150 headcount eng/DevRel-heavy, <10 inbound enterprise reps, $150M Series D, Guillermo as content asset); Category (oscillating across 'Develop. Preview. Ship.,' 'platform for frontend frameworks,' 'Frontend Cloud'). Identifies specific misalignment: Product/Company aligned for Frontend Cloud niche, Category claim is the loose leg, with Company-Category drift risk if expansion goes broad. Cites the signal-level quote on category oscillation."
+    },
+    {
+      "id": "category-strategy-with-rigorous-reasoning",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Picks Path B (niche subcategory: Frontend Cloud). Engages all 4 framework conditions: (a) team capacity — PLG/DevRel staffing matches niche-king; (b) competitive dynamics — AWS uncatchable as developer-platform king with bundled distribution; (c) product readiness — Frontend Cloud is what product already is, enterprise gaps are closeable in 12-18 months; (d) funding — $150M funds category education without forcing premature strike. Explicitly reasons rejection of Path A (premature, vapor risk, Cloudflare frame-recapture), Path C (default category trap, AWS king, advantage invisible in frame), and the vague 'stay where Next.js deploys' alternative (#2-by-default trap)."
+    },
+    {
+      "id": "lightning-strike-sequencing",
+      "weight": 0.5,
+      "score": 1.0,
+      "reasoning": "Five specific testable readiness criteria: (1) SOC 2 Type II + SCIM + audit logs + data residency US/EU shipped; (2) 3+ Fortune-500 standardization references publicly nameable; (3) Next.js default-React-framework position confirmed via npm/GitHub metrics; (4) canonical analyst (Gartner/Forrester) covering Frontend Cloud OR Vercel-led category publication in market 6+ months prior; (5) community-organic use of Frontend Cloud language at Next.js Conf. Each is observable. None are generic 'good product / strong launch.' Timing window named (2H 2022 or 2023)."
+    },
+    {
+      "id": "failure-modes-flagged-with-evidence",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Six failure modes flagged with cited input evidence and strength gradation: default category trap (STRONG — quotes adjacent-infra temptations + investor pressure); magic triangle misalignment (STRONG — quotes the 'category claim is in flux' signal); premature lightning strike (STRONG, conditional on Path A); marketing drift (MEDIUM); #2-by-default (MEDIUM); better-thinking (LOW, correctly not over-flagged); vapor POV (LOW today, future-conditional). Strength gradation prevents over-flagging and demonstrates evidence calibration."
+    },
+    {
+      "id": "confidence-and-open-questions-calibrated",
+      "weight": 0.5,
+      "score": 1.0,
+      "reasoning": "Confidence integers given for both calls (POV sharpness 8/10; category strategy 7/10) with reasoning for why each isn't a 10. Three specific open questions each names a metric or ratio: (1) Next.js revenue share ratio with named thresholds (>85% vs <70%); (2) enterprise win-rate vs AWS Amplify/DIY-AWS by deal size with named thresholds (>60% at $100K+ ACV vs <40%); (3) new-Next.js-project deployment share with named thresholds (>50% vs <30%). None generic."
+    },
+    {
+      "id": "category-king-economics-engaged",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Case-specific economics applied throughout. For Path C: names AWS as entrenched developer-platform king with bundled distribution, applies ~76% economics to compute Vercel's single-digit-percent ceiling, names why the framework-coupling advantage is invisible in that frame. For Path B: names subcategory as currently kingless (Netlify excluded by framework-agnostic worldview, Cloudflare by Workers-primitive focus, Amplify by AWS-service composition), applies king-economics to argue subcategory-king status is achievable. Not a framework restatement — specific to Vercel's incumbents and advantages."
+    },
+    {
+      "id": "uncomfortable-test-applied",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Three named competitors with explicit structural-wrongness statements, not generic 'they're worse.' Netlify: framework-agnostic-by-design CANNOT co-evolve with any one framework's rendering layer — architectural impossibility, not capability gap. Cloudflare Pages: Workers-runtime-primitive CANNOT ship ISR-as-product or framework-native previews because unit of execution is Worker not route. AWS Amplify: AWS-service-composition organization CANNOT match framework velocity because ships when AWS service teams ship. Each is a structural 'cannot,' not a 'doesn't yet.'"
+    },
+    {
+      "id": "king-vs-niche-justified-with-economics",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Path choice justified with case-specific economics, not framework restatement. Path C rejected with named incumbent (AWS), specific dynamic (bundled distribution through every existing customer relationship, $60B+ revenue base), and specific structural-#3 economics (single-digit-percent capture against bundled distribution where Vercel's advantage is invisible in evaluation criteria). Path B chosen with subcategory-specific competitive analysis (each of three named competitors structurally excluded by worldview) and Next.js as unreplicable distribution moat (Netlify cannot acquire, Cloudflare cannot fork without community trust loss, Amplify cannot become framework-led without reorg)."
+    },
+    {
+      "id": "strike-failure-precondition",
+      "weight": 1.0,
+      "score": 1.0,
+      "reasoning": "Two named observable thresholds for fire-vs-delay decision. Primary: SOC 2 Type II attestation report NOT issued by named auditor by mid-2022 OR fewer than 3 Fortune-500 standardization references publicly nameable 30 days before strike day -> delay 6 months. Recovery cost quantified (12-18 months of vapor-POV skepticism, structurally worse than two extra quarters of delay). Secondary inverse threshold: if Cloudflare Pages >25% of Next.js production deployments by H2 2022, fire strike on next conf cycle regardless of whole-product completeness because category-king is being recaptured. Both observable, measurable, and tied to specific input signals."
+    }
+  ],
+  "weighted_total": 10.5,
+  "max_weighted_total": 10.5,
+  "total_score": 1.0,
+  "pass_threshold": 0.75,
+  "pass": true,
+  "discrimination_band": "strong_analysis",
+  "items_below_1": [],
+  "notes": "Analysis recommends Path B (niche subcategory: Frontend Cloud) with lightning strike deferred 12-18 months pending enterprise whole-product completion. Matches the retrospect signal in notes_for_eval (not consulted during analysis): Vercel did formalize Frontend Cloud by 2023, did close enterprise whole-product gaps in 2022-2023, did not pivot to outbound-led, did stay PLG-first. The one place the analysis is more cautious than the retrospect: it treats adjacent-infra expansion (KV, Postgres, Blob) as a default-category-trap risk rather than as a legitimate niche-king expansion move. The retrospect shows Vercel did expand into adjacent infra (flagged in case notes as 'the controversial move'). The analysis's framework-applied caution against that expansion is consistent with Play Bigger, even if Vercel chose differently in practice."
+}

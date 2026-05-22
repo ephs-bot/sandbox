@@ -1,0 +1,37 @@
+{
+  "book": "crossing-the-chasm",
+  "case_id": "slack-2014",
+  "rubric_id": "crossing-the-chasm-v0",
+  "analysis_model": "claude-subagent-no-priming",
+  "judge_model": "claude-in-session",
+  "run_mode": "subagent_clean",
+  "run_mode_note": "Analysis phase dispatched via Agent tool (general-purpose subagent type). Subagent has no conversational context from this session and was given only the framework summary, the prompt template, and the case inputs (ground_truth stripped). Judge phase performed by Claude in this session, applying the rubric mechanically against the subagent's output text.",
+  "timestamp_iso": "2026-04-30T17:35:00Z",
+  "total_weight": 7.5,
+  "weighted_sum": 7.5,
+  "final_score": 1.0,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "comparison_to_in_session_run": {
+    "in_session_run_score": 1.0,
+    "subagent_run_score": 1.0,
+    "delta": 0.0,
+    "qualitative_observations": [
+      "Subagent analysis tiered the bowling-pin sequence with explicit deferral reasoning (banks/hospitals/government excluded with whole-product justification: FedRAMP, HIPAA BAA, data residency, on-prem). The in-session run did not include this exclusion reasoning.",
+      "Subagent open questions included quantitative trigger thresholds ('if >25% of paid revenue is from 200+ employees, position moves to in-the-chasm'). The in-session run had named metrics but not trigger thresholds.",
+      "Subagent explicitly addressed why 'Wrong beachhead' and 'Skipping the bowling pin' were NOT flagged — better rubric discipline (avoiding false-positive flagging).",
+      "Both analyses converged on the same TALC stage (Early Adopters), chasm position (approaching), and same 3 strong-evidence failure modes."
+    ]
+  },
+  "training_data_caveat": "Slack's chasm crossing is a public, frequently-analyzed case. Claude's training data likely includes Moore-framework analyses of Slack. This run validates 'Claude can replay Moore's framework rigorously on a documented case.' It does not yet validate 'Claude can do this on a case where no public Moore-style analysis exists in training data.' That gap is what case A (a 2026-current or non-iconic case) is intended to test.",
+  "item_scores": [
+    { "id": "talc-stage-decisive", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Early Adopters (Visionaries)' stated decisively. Multi-evidence cited: tech-forward customer profile (SF, software companies, design agencies, startups), IC-as-buyer pattern, fun/magic/addictive affect, missing IT apparatus (no SSO/SCIM/admin/compliance), 'startup darling' press framing. No hedging." },
+    { "id": "chasm-position-on-buying-motivation", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "'Approaching the chasm' picked decisively. Reasoning explicitly contrasts pragmatist buying motivations (references, completeness, low risk, IT sign-off) against current customer behavior. Not growth-justified — explicitly says 'volume is not the discriminator.'" },
+    { "id": "beachhead-role-level-specificity", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Beachhead at role-level: 'Heads of Engineering at 50-500 person venture-funded software companies in the US.' Named role, size band, industry, geography. Single beachhead, not parallel. Justification ties role to budget authority + coordination pain + IT-light tolerance window." },
+    { "id": "whole-product-gap-concrete-named-items", "raw_score": 1.0, "weight": 1.5, "weighted_score": 1.5, "reasoning": "8 items, all concrete with named tools/standards: Okta/OneLogin/Google Workspace SAML; SCIM provisioning/deprovisioning; role-separated admin console + audit log + 2FA org-wide; GitHub/Jira/PagerDuty/CircleCI/Google Drive integrations; per-channel retention + full-workspace export; 3-5 named 100-500-person reference accounts with Head of Eng reference calls; documented uptime SLA + public status page with historical incidents; annual contract terms with invoicing. No generic items." },
+    { "id": "bowling-pin-falling-rationale", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "3 segments, each with explicit reference-value falling rationale. Heads of Design (low-risk lateral via eng reference + shared whole-product needs); Heads of Product/Eng at 500-2000-person post-IPO/late-stage (reference value of 'every hot Series B/C team in SF runs on this'); media/ecommerce IT (adjacency by company shape + whole product transfer + cumulative reference list). Bonus: explicitly defers regulated industries (banks, hospitals, government) with whole-product reasoning." },
+    { "id": "failure-modes-flagged-with-evidence", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "All 3 strong-evidence Moore failure modes flagged with verbatim input citations: parallel pursuit ('all knowledge workers, all company sizes'); confused TALC stage ('email replacement' framing); whole product blindness ('No enterprise IT integrations yet (no SSO, no SCIM, no compliance tooling, no data residency)'). Bonus discipline: explicitly addresses why 'Wrong beachhead' and 'Skipping the bowling pin' are NOT flagged given the company hasn't yet picked a beachhead." },
+    { "id": "visionary-growth-vs-crossing-distinction", "raw_score": 1.0, "weight": 1.0, "weighted_score": 1.0, "reasoning": "Dedicated section makes the distinction explicit: '~8,000 DAU growth represents continued penetration of the visionary segment, not crossing.' Defines what a pragmatist signal would look like (F500 IT procurement, regulated-industry reference, admin/compliance dealblocker) and explicitly notes none are present. Names the specific founder mistake risk: 'mistake the visionary peak for early-majority traction.'" },
+    { "id": "confidence-and-open-questions-calibrated", "raw_score": 1.0, "weight": 0.5, "weighted_score": 0.5, "reasoning": "TALC 9/10, Chasm 8/10 stated as integers with calibration justification. 3 specific open questions with quantitative trigger thresholds: paid-tier revenue %above 200 employees with IT/security-review gate ('if >25%, position moves toward in-the-chasm'); named non-SF non-software-startup 500+ anchor; ratio of IC-creators vs. budget-authority workspace creators ('if >40%, beachhead re-scoped'). Trigger thresholds are stronger than open questions in the in-session run." }
+  ]
+}

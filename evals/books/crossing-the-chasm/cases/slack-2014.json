@@ -1,0 +1,79 @@
+{
+  "id": "slack-2014",
+  "company": {
+    "name": "Slack",
+    "description": "Team messaging app, public launch February 2014, after a year-long private beta as an internal tool spinout from a failed game studio (Tiny Speck / Glitch)."
+  },
+  "current_state": {
+    "revenue_arr_usd": null,
+    "customers_count_approx": "~8,000 daily active users at public launch, growing rapidly",
+    "customer_profile": "Tech-forward early-stage startups, software companies, design agencies. Heavy concentration in San Francisco.",
+    "sales_motion": "Pure self-serve / bottoms-up. Free tier, no sales team. Word-of-mouth and tech press driving signups.",
+    "industries": ["software", "design agencies", "tech startups"],
+    "geography_primary": "United States, concentrated in SF Bay Area"
+  },
+  "expansion_thesis": "Become the default communication tool for 'the future of work.' Targeting all knowledge workers, all company sizes, eventually replacing email for internal team communication.",
+  "signals": [
+    "Founders publicly describe the product as 'email replacement' for all teams.",
+    "No enterprise IT integrations yet (no SSO, no SCIM, no compliance tooling, no data residency).",
+    "No dedicated admin controls; workspace owners are individual contributors.",
+    "Pricing tier exists but most usage is on the free tier.",
+    "User feedback is enthusiastic and viral; users describe Slack as 'fun,' 'magic,' 'addictive.' Buyers and users are usually the same person.",
+    "No reference customers in regulated industries (banking, healthcare, government).",
+    "Press coverage frames Slack as a 'startup darling,' not as enterprise software."
+  ],
+  "ground_truth": {
+    "talc_stage": "Early Adopters",
+    "talc_stage_evidence": "Buyers are visionaries (individual contributors at tech-forward orgs adopting bottom-up). Buying motivation is 'this is fun and our team likes it,' not 'this is the safe, complete choice with references.' Free tier dominates; no enterprise procurement.",
+    "chasm_position": "Approaching the chasm",
+    "chasm_position_evidence": "Growth is real but every customer profile fits the visionary buyer pattern. The next wave (early-majority pragmatists in larger companies and regulated industries) requires admin controls, compliance, integrations, and references that don't exist yet.",
+    "correct_beachhead": "Mid-size technology companies (50-500 employees, SF/NYC, software-development-led, with named workspace admin role).",
+    "beachhead_rationale": "These companies are pragmatists relative to the current early-adopter base, but technology-friendly enough to be convinced by the visionary references. They have a named buyer (engineering leader or COO), real budget, and a need for the next layer of whole product (SSO, basic admin) that's achievable in 12 months.",
+    "whole_product_gap": [
+      "Single Sign-On (Okta, Google Workspace SSO)",
+      "Basic admin controls: workspace-wide member management, role permissions, audit log",
+      "Channel governance (private channels, default permissions)",
+      "Reference customers in non-trivial team sizes (200-500 employees)",
+      "Integrations directory with the top 20 SaaS tools the segment uses",
+      "Service-level agreement and uptime commitments for paid tiers"
+    ],
+    "bowling_pin_sequence": [
+      {
+        "segment": "Tech-forward media and content companies",
+        "rationale": "Adjacent culturally to the beachhead; same buyer profile (engineering or product leader); willing to follow tech-company references."
+      },
+      {
+        "segment": "Marketing and creative agencies",
+        "rationale": "Recognize the tech and media references; have similar team-collaboration pain; less concerned with regulatory whole product."
+      },
+      {
+        "segment": "Enterprise IT (Fortune 500)",
+        "rationale": "Reached only after sufficient mid-market reference base + enterprise whole product (SCIM, data residency, FedRAMP). 2-3 years out from 2014."
+      }
+    ],
+    "failure_modes_flagged": [
+      {
+        "mode": "Parallel pursuit",
+        "evidence": "Expansion thesis is 'all knowledge workers, all company sizes' — undifferentiated horizontal pursuit instead of named beachhead."
+      },
+      {
+        "mode": "Confused TALC stage",
+        "evidence": "Founders publicly describe Slack as ready to 'replace email for all teams' — implies early-majority readiness while every actual customer is a visionary buyer."
+      },
+      {
+        "mode": "Whole product blindness",
+        "evidence": "No SSO, no admin controls, no compliance tooling. Without these, mid-market and enterprise pragmatists will refuse to buy regardless of how 'fun' the product is."
+      }
+    ],
+    "confidence": {
+      "talc_stage": 9,
+      "chasm_position": 8
+    },
+    "open_questions": [
+      "What percentage of paid (vs. free) revenue comes from teams larger than 100 — would distinguish 'visionary individual buyers' from 'pragmatist team buyers.'",
+      "Are any Fortune 500 companies in active pilot? Would shift the beachhead recommendation toward enterprise sooner.",
+      "What is the cohort retention curve for teams that grow past 50 members? Tells whether whole-product gaps are already biting."
+    ]
+  },
+  "notes_for_eval": "This case is built from public reporting and Slack's own retrospectives circa 2014. Ground truth was confirmed by Slack's actual subsequent moves (added enterprise tier 2017, FedRAMP 2019, sold to Salesforce 2021). A correct analysis in 2014 should have predicted the broad shape of this trajectory."
+}

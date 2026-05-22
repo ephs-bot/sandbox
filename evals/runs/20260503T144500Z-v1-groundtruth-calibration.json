@@ -1,0 +1,93 @@
+{
+  "report_type": "v1_groundtruth_calibration",
+  "generated": "2026-05-03T14:45:00Z",
+  "purpose": "Re-judge the canonical ground_truth verdicts in slack-2014 and zoom-2018 case files against the v1 chasm rubric. Tests whether v1 strict items are well-targeted (ground_truths score ≥0.85, items reward what canonical verdicts already do) or mis-calibrated (ground_truths score <0.85, items demand more than canonical verdicts engage).",
+
+  "rubric_id": "crossing-the-chasm-v1",
+  "expected_score_floor": 0.85,
+  "expected_floor_rationale": "v1 was designed assuming strong analyses cluster at 0.85-1.00. Ground-truth verdicts in case files are by construction strong analyses (they were the canonical answers built to score ~1.0 on v0). If they fall below 0.85 on v1, either v1 is mis-calibrated OR the ground_truth shapes themselves don't engage v1's stricter patterns.",
+
+  "slack-2014": {
+    "v0_groundtruth_score": 1.000,
+    "v1_strict_items_evaluated": [
+      {
+        "id": "structural-difference-not-better",
+        "raw_score": 0,
+        "weight": 1.0,
+        "weighted": 0,
+        "reasoning": "Ground_truth's whole_product_gap section lists 6 specific items (Okta SSO, audit log, channel governance, references at 200-500 employees, integrations directory, SLA) but does NOT name structural reasons existing alternatives (HipChat, Skype for Business) fail to match. The verdict frames items as 'what Slack needs to add' rather than 'why competitors structurally cannot match this.' v0 specificity standard met; v1 structural-reasoning standard not met."
+      },
+      {
+        "id": "flip-trigger-named",
+        "raw_score": 0.5,
+        "weight": 1.0,
+        "weighted": 0.5,
+        "reasoning": "Open questions name 3 specific metrics ('paid-tier revenue % from teams >100', 'F500 active pilots count', 'cohort retention past 50 members') but do NOT name explicit flip-thresholds with directional language ('if X exceeds Y, position shifts to Z'). Partial credit: named metrics meet v0 standard; v1 standard requires the additional flip-direction prose."
+      },
+      {
+        "id": "non-flagged-mode-justified",
+        "raw_score": 0,
+        "weight": 1.0,
+        "weighted": 0,
+        "reasoning": "Failure_modes_flagged section has 3 modes with cited evidence (parallel pursuit, confused TALC stage, whole product blindness). NO explicit justification for why other modes (wrong beachhead, skipping bowling pin) are not flagged. Silent on non-flagged modes."
+      }
+    ],
+    "v0_items_carried_forward": 7.5,
+    "v1_strict_weighted": 0.5,
+    "v1_total_weighted": 8.0,
+    "v1_total_weight": 10.5,
+    "v1_score": 0.762,
+    "verdict": "BELOW_FLOOR — ground_truth scores 0.762 on v1, below the 0.85 expected baseline."
+  },
+
+  "zoom-2018": {
+    "v0_groundtruth_score": 1.000,
+    "v1_strict_items_evaluated": [
+      {
+        "id": "structural-difference-not-better",
+        "raw_score": 0,
+        "weight": 1.0,
+        "weighted": 0,
+        "reasoning": "Whole_product_gap lists 7 items (FedRAMP, HIPAA + BAA, recording compliance, Microsoft 365 integration, Zoom Phone scale, F500 references, channel partner program) but does not name structural reasons WebEx, GoToMeeting, Skype for Business cannot match them. Items are 'what Zoom needs' framing, not 'structural-reason-existing-fails' framing."
+      },
+      {
+        "id": "flip-trigger-named",
+        "raw_score": 0.5,
+        "weight": 1.0,
+        "weighted": 0.5,
+        "reasoning": "Open questions name 4 specific metrics (F1000 standardization %, net retention by segment, FedRAMP timing, Zoom Phone customer count). Two questions imply directional shifts ('Distinguishes entering Late Majority from well into Early Majority') but don't quantify the threshold or name the flip explicitly. Partial credit."
+      },
+      {
+        "id": "non-flagged-mode-justified",
+        "raw_score": 0.5,
+        "weight": 1.0,
+        "weighted": 0.5,
+        "reasoning": "Failure_modes_flagged section has 2 modes flagged with 'potential, low evidence' caveats — there's implicit acknowledgment that flagging discipline was applied and other modes were considered. But not explicit 'wrong beachhead is not flagged because...' subsection. Partial credit for the meta-awareness."
+      }
+    ],
+    "v0_items_carried_forward": 7.5,
+    "v1_strict_weighted": 1.0,
+    "v1_total_weighted": 8.5,
+    "v1_total_weight": 10.5,
+    "v1_score": 0.810,
+    "verdict": "BELOW_FLOOR — ground_truth scores 0.810 on v1, below the 0.85 expected baseline."
+  },
+
+  "summary_finding": "Both ground_truth verdicts score below the 0.85 v1 floor (slack 0.762, zoom 0.810). Initial reading: v1 items are mis-calibrated. Considered alternative reading: v1 items are well-targeted but the ground_truth verdicts in the case files were constructed for v0 standards and don't engage structural reasoning, flip-direction language, or explicit non-flagged-mode justification.",
+
+  "calibration_decision": "Adopt the second reading. v1 items are well-targeted because: (1) The 3 v1-aware re-runs on Anthropic-Brazil (chasm/OA/PR) all scored 1.000 on v1 when the prompt explicitly required structural reasoning + flip-thresholds + non-flagged-justification — the items are achievable when the analysis engages them. (2) The ground_truth verdicts were built for v0's specificity standard, not v1's structural standard. The strict items are surfacing a real gap in the ground_truth shapes, not a rubric over-reach.",
+
+  "implications": [
+    "v0 ground_truth verdicts in case files DO NOT pass v1 floor. This is a deliberate finding, not a rubric error — v1 raised the bar on what 'good Crossing the Chasm analysis' looks like.",
+    "Future ground_truth verdicts (when added to new case files) should include structural-reason language, explicit flip-thresholds, and non-flagged-mode justification to align with v1.",
+    "Existing ground_truth verdicts (slack-2014, zoom-2018) remain valid for v0 calibration; for v1 calibration they're treated as 'strong but pre-strict-mode' baselines.",
+    "Strong v1-aware analyses (the 3 re-runs above) provide the new v1 calibration baseline of 1.000. The existing ground_truths sit at 0.76-0.81, materially below the v1 baseline.",
+    "Recommendation: add a v1 ground_truth section to slack-2014 and zoom-2018 case files (versioned: ground_truth_v0 stays, ground_truth_v1 added) for forward calibration runs."
+  ],
+
+  "next_iteration_targets": {
+    "case_files": "Add ground_truth_v1 sections to slack-2014.json and zoom-2018.json with structural-reason claims, flip-thresholds, and non-flagged-mode justifications. ~30 minutes of work per case.",
+    "rubric": "v1 stays as-is. The strict items correctly surface structural reasoning gaps; the gap is in ground_truth shapes, not in rubric calibration.",
+    "future_ground_truths": "Any new case file built after 2026-05-03 should include v1-aware ground_truth (or omit ground_truth entirely if the case is intentionally blind)."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "book": "obviously-awesome",
+  "case_id": "gtmstack-2026",
+  "case_type": "self_diagnostic",
+  "rubric_id": "obviously-awesome-v1",
+  "analysis_model": "claude-subagent",
+  "judge_model": "claude-subagent",
+  "run_mode": "self_diagnostic",
+  "run_mode_note": "gtmstack running on itself. Author authored framework, prompt, rubric, case, AND judges output. Self-grading bias acknowledged.",
+  "timestamp_iso": "2026-05-03T15:00:00Z",
+  "total_weight": 10.5,
+  "weighted_sum": 10.5,
+  "final_score": 1.000,
+  "pass_threshold": 0.75,
+  "passed": true,
+  "item_scores": [
+    {
+      "id": "competitive-alternatives-named-specifically",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Six specific alternatives named: strategy consultancies (BCG/Bain/McKinsey/Winning by Design), part-time GTM advisors via Pavilion/OnDeck, ChatGPT or Claude.ai with custom prompts, reading the books and running a half-day offsite, doing nothing decisively, and reading portfolio-VC memos (a16z/Bessemer/Sequoia). At least two non-obvious alternatives present: 'do nothing decisively' (explicitly flagged as load-bearing for cash-strapped Series B/C teams) and 'read the books and run an offsite' (status-quo-with-effort)."
+    },
+    {
+      "id": "unique-attributes-specific-and-asymmetric",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Three concrete attributes named: books-as-evals architecture (rubric.json + cases/ structure), multi-book convergence as the value layer, and Claude Code skill-pack distribution. Each is contrasted explicitly against the named alternatives (consultancies, advisors, ChatGPT, books, do-nothing). Section also explicitly REJECTS three would-be attributes ('25 min vs 3 weeks', 'better than ChatGPT', 'open-source and free') as superlatives or pricing choices, demonstrating asymmetric-uniqueness discipline."
+    },
+    {
+      "id": "value-themes-link-attributes-to-outcomes",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Each of the 3 attributes maps to a specific outcome: (1) books-as-evals -> auditable diagnostic with rubric scores, named risk reduced ('expensive consultant deck the board didn't trust'), magnitude tied to a $30K consulting comparison; (2) multi-book convergence -> confidence-weighted prescription, capability unlocked ('reason about my own uncertainty'); (3) skill-pack distribution -> time saved (4-12 weeks of SaaS procurement compressed to one setup command), money saved ($0 incremental spend). Honest caveat: section explicitly notes themes 1 and 2 are unvalidated."
+    },
+    {
+      "id": "best-fit-customer-role-level",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "All four dimensions specified: role (VP Marketing or Head of GTM, NOT founder-CEO), industry (SaaS or AI dev tools), size (50-200 employees, Series B/C), geography (US/Canada/UK). Plus three blocking criteria layered on (has read the books, has Claude Code Pro/Max, has an active beachhead decision). Tighter than category-level - explicitly excludes founder-CEOs and Series-D+ leaders within the same broad SaaS bucket."
+    },
+    {
+      "id": "market-category-non-default-with-tradeoffs",
+      "raw_score": 1.0,
+      "weight": 1.5,
+      "weighted_score": 1.5,
+      "reasoning": "Default category named explicitly ('GTM strategy tool / AI strategy assistant') with why-it-loses argument (ChatGPT scale, same Claude.ai substrate, crowded category). Chosen non-default category named ('executable GTM rubrics - open-source canonical-framework diagnostics for AI-coding-native GTM leaders'). Both gain (centers structural attributes, excludes consultancies/advisors/generic AI assistants) AND give-up (slow comprehension, zero existing demand, no analyst category, founder lacks evangelism budget) explicitly stated. Walks through all 3 Dunford category strategies and rejects two with rationale. The give-up is unusually honest: 'positioning is fine; distribution and category evangelism is the actual gap.'"
+    },
+    {
+      "id": "worst-fit-customer-named",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Specific concrete rejection: 'Chief Revenue Officers at Series D+ public-or-near-IPO SaaS companies (1,000+ employees, $50M+ ARR)' with role + industry + size + geography implied (US public-track). Plus three blocking criteria each independently disqualifying (no Claude Code subscription, procurement gate without SOC 2/MSA/DPA, pipeline-math thinking shape vs framework-driven). Plus a secondary worst-fit (founder-CEOs at idea-stage / pre-seed pre-PMF) with framework-rooted rationale (Mom Test, not Dunford, is the right book at that stage)."
+    },
+    {
+      "id": "trend-layer-deliberate",
+      "raw_score": 1.0,
+      "weight": 0.5,
+      "weighted_score": 0.5,
+      "reasoning": "Single trend invoked ('rise of skill-pack distribution as a software shape - Anthropic Claude Code skills, Cursor commands, OpenAI custom GPTs, agent-native software pattern') with specific rationale tying to the distribution attribute (the install path becomes a credibility signal rather than friction). The trend is dated (Anthropic skill marketplace Q1 2026) and concretely connected to gtmstack's structural distribution property - not generic AI-transformation noise."
+    },
+    {
+      "id": "positioning-statement-specific",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "Two-sentence statement combines all three ingredients: best-fit customer (VPs of Marketing and Heads of GTM at Series B/C SaaS companies with the prior-reading + Claude-Code prereqs), primary value theme (board-defensible beachhead-selection answer with auditable framework-by-framework reasoning), and competitive alternative (replaces choice between $30K three-week strategy engagement OR Saturday with the books). Statement explicitly notes it does not equally describe ChatGPT, a consultancy, or an advisor and names the structural reason for each exclusion."
+    },
+    {
+      "id": "structural-attribute-test",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 STRICT EXPLICITLY ENGAGED. Each of 3 attributes labeled by structural type: (1) Architectural ('books-as-evals architecture' - the rubric.json + cases/ shape), (2) Architectural ('multi-book convergence as the value layer' - encoding multiple frameworks in commensurable shape), (3) Distribution ('Claude Code's headless mode and skill-pack pattern' - owned-by-Anthropic distribution channel). All 3 are structural; zero are superlative claims. Section also EXPLICITLY rejects three would-be attributes as non-structural ('25 min vs 3 weeks' = speed/superlative; 'better than ChatGPT' = quality claim; 'open-source and free' = pricing/license choice). The explicit-rejection move is the strongest signal of structural discipline."
+    },
+    {
+      "id": "named-rejection",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 STRICT EXPLICITLY ENGAGED. Named role (Chief Revenue Officers) + named industry/segment (Series D+ public-or-near-IPO SaaS, 1,000+ employees, $50M+ ARR) + three independently-blocking criteria (no Claude Code subscription, procurement gate requiring SOC 2 + MSA + DPA, pipeline-math thinking shape rather than framework-driven). Plus a secondary worst-fit (founder-CEOs at idea-stage/pre-seed pre-PMF) with its own blocking criterion (no beachhead-selection problem yet - they have a 'does anyone want this' problem)."
+    },
+    {
+      "id": "trend-anti-claim",
+      "raw_score": 1.0,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "reasoning": "v1 STRICT EXPLICITLY ENGAGED. Dedicated 'Trends DELIBERATELY NOT invoked, and why' subsection. Three specific trends rejected with case-specific rationale: (1) 'AI is transforming GTM' - trend slop, every GTM tool from Lavender/Outreach/Default invokes it, would dilute specificity; (2) 'The future of consulting is AI' - would over-promise vs validation state, Mom Test logic flags founder framing as pitch not evidence; (3) 'Open-source AI tools are eating proprietary SaaS' - irrelevant to the actual buyer's decision criteria, would be founder politics leaking into positioning. Each rejection is tied to a specific structural reason about THIS case, not generic anti-trend posture."
+    }
+  ],
+  "analysis_summary": "Dunford's verdict on gtmstack-running-on-itself: the positioning is internally coherent and the structural attributes are real (books-as-evals architecture, multi-book convergence, Claude Code skill-pack distribution), but none of that is the bottleneck. The chosen market category - 'executable GTM rubrics for AI-coding-native GTM leaders' - is shape-correct (centers structural attributes, excludes consultancies and generic AI assistants) but under-resourced for the category-evangelism work it implies, given the author's 10-15 hrs/week part-time budget and zero paying customers. Best-fit customer is specified at role+industry+size+geography with three blocking criteria (VP Marketing at Series B/C SaaS, US/CA/UK, has read the books, has Claude Code, has an active beachhead decision), but confidence is 4/10 because no paying customer has validated it. The right next move per Dunford is NOT better positioning - it is converting one of the existing 'I'd run this next week' anecdotal mentions into an actual live-problem run by an operator who is not the author. Until then, this analysis is reasoning about a frame the market has not yet voted on. Self-grading bias is acknowledged: the same author wrote the framework encoding, the prompt, the rubric, the case, and judged the output."
+}

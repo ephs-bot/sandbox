@@ -1,0 +1,10 @@
+{
+  "name": "gtmstack-evals",
+  "version": "0.1.0",
+  "description": "Books-as-evals runner for gtmstack. Encodes canonical GTM frameworks as runnable rubrics + ground-truth cases. Runs analyses via headless Claude Code (claude -p), no API key required.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "runner": "bun run runner.ts"
+  }
+}
