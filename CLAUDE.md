@@ -1,3 +1,47 @@
+# This repo (Ethan's setup)
+
+This is a personal fork combining **gstack** (Garry Tan's Claude Code skill
+pack), **gtmstack** (GTM books-as-evals diagnostic), and a scaffolded subset of
+**gbrain** skills (persistent knowledge brain) — assembled for running GTM/strategy
+analyses. The rest of this file is the upstream gstack contributor guide; the
+section below is what's specific to making this repo usable.
+
+## gbrain setup (reproduce next session)
+
+gbrain is a runtime, not just files. The scaffolded skills in `skills/` drive the
+`gbrain` CLI, which must be installed in the container (it is NOT vendored here).
+To get a working keyword-only brain from a fresh container:
+
+```bash
+# 1. install gbrain (clone is already network-reachable; bun is preinstalled)
+git clone https://github.com/garrytan/gbrain.git /tmp/gbrain
+cd /tmp/gbrain && bun install && bun link        # puts `gbrain` on PATH
+
+# 2. init a local PGLite brain with no embedding provider
+gbrain init --pglite --no-embedding
+
+# 3. this container's network blocks the embedding/rerank providers
+#    (zeroentropy/openai/huggingface return 403), so turn the reranker off
+#    or `gbrain search` hangs trying to reach them:
+gbrain config set search.reranker.enabled false
+
+# 4. use it
+gbrain capture "a thought to remember"
+gbrain search "keyword"
+gbrain stats
+```
+
+Notes:
+- **Keyword-only mode.** Semantic/vector search needs an embedding key
+  (`ZEROENTROPY_API_KEY` / `OPENAI_API_KEY` / `VOYAGE_API_KEY`) AND network egress
+  to that provider — neither is available here. On a normal machine, set a key,
+  run `gbrain init --pglite` (no `--no-embedding`), and skip the reranker line.
+- **Ephemeral container.** The brain DB at `~/.gbrain` and the global `gbrain`
+  link do NOT persist across container restarts. Only the committed `skills/`
+  files persist. For a durable brain, keep its markdown brain-repo in git or use
+  a Supabase-backed brain (see `USING_GBRAIN_WITH_GSTACK.md`).
+- `capture` is a built-in CLI verb, not a scaffolded skill — `gbrain capture` just works.
+
 # gstack development
 
 ## Commands
