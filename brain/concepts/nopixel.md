@@ -48,6 +48,43 @@ Launcher** (deliberately not the FiveM/Cfx.re launcher).
   server *without* diluting into a GTA-Online-like experience. The dilution
   avoidance is load-bearing — narrow before wide.
 
+## Whole-product gaps (known, May 2026)
+
+The pre-launch product gap list, captured from the platform owner.
+Crossing-the-Chasm framing: these are the "spokes" of the whole product
+needed before the mainstream audience can have a strong, sustained
+experience.
+
+1. **Community-behavior systems beyond human-only moderation.**
+   - Automated moderation tooling.
+   - Reputation system (per-player, per-server, possibly cross-server).
+   - Potentially reputation-based matchmaking.
+   - Incentive structures that reward positive play and disincentivize poor
+     play — so culture is enforced by the system, not just admins.
+   - Why it matters: a viewing-first audience converts to a playing audience
+     only if first-time players land in a healthy room. Human-only mod doesn't
+     scale past one prestige server.
+
+2. **Scaling beyond closed beta.**
+   - How to grow the closed-beta population (more allowlist invites) before
+     opening up more broadly, while preserving the quality bar.
+   - How to ensure every wave of new players gets a strong experience —
+     onboarding, capacity, mentorship from existing players, queue UX.
+
+3. **Server configuration without complexity spiral.**
+   - Players/operators need a reasonably custom experience.
+   - But every config knob added is a surface area for bugs, fragmentation,
+     and operator-support burden.
+   - The framework promise (configs-not-code) lives or dies on this gap —
+     too few knobs and operators can't differentiate; too many and the
+     "no code needed" pitch breaks.
+
+4. **Social systems.**
+   - Playing-with-friends primitives, group/crew formation, friend lists,
+     party invites, persistent social identity across sessions.
+   - Today's GTA RP solves this via Discord + manual coordination. A
+     mainstream audience won't.
+
 ## Open threads (strategic tensions)
 
 - **Brand co-pilot tension.** NoPixel is prestige + hardcore-RP; the target
